@@ -7,9 +7,7 @@ public static class Extensiones
 {
     public static void MostarInformacion(this Centro centro)
     {
-        System.Console.WriteLine($" -> Centro: {centro.Nombre} [{centro.CentroId}]");
-        System.Console.WriteLine($" -> Direccion: {centro.Direccion}");
-        System.Console.WriteLine($" -> Telefono: {centro.Telefono}");
+        System.Console.WriteLine(centro.ObtenerFicha());
     }
     
     public static void MostarInformacion(this CicloFormativo cicloFormativo)
