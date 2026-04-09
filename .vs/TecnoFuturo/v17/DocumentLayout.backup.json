@@ -1,0 +1,150 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|c:\\users\\profe\\source\\repos\\tecnofuturo\\tecnofuturo\\extensiones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|solutionrelative:tecnofuturo\\extensiones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|c:\\users\\profe\\source\\repos\\tecnofuturo\\tecnofuturo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|solutionrelative:tecnofuturo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|c:\\users\\profe\\source\\repos\\tecnofuturo\\tecnofuturo\\cicloformativo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|solutionrelative:tecnofuturo\\cicloformativo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|c:\\users\\profe\\source\\repos\\tecnofuturo\\tecnofuturo\\profesor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|solutionrelative:tecnofuturo\\profesor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|c:\\users\\profe\\source\\repos\\tecnofuturo\\tecnofuturo\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|solutionrelative:tecnofuturo\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|c:\\users\\profe\\source\\repos\\tecnofuturo\\tecnofuturo\\modulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|solutionrelative:tecnofuturo\\modulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|c:\\users\\profe\\source\\repos\\tecnofuturo\\tecnofuturo\\turno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B229662-CB8B-4CF1-A824-BC2F17CF7AED}|TecnoFuturo\\TecnoFuturo.csproj|solutionrelative:tecnofuturo\\turno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Extensiones.cs",
+              "DocumentMoniker": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\Extensiones.cs",
+              "RelativeDocumentMoniker": "TecnoFuturo\\Extensiones.cs",
+              "ToolTip": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\Extensiones.cs*",
+              "RelativeToolTip": "TecnoFuturo\\Extensiones.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T18:04:10.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Turno.cs",
+              "DocumentMoniker": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\Turno.cs",
+              "RelativeDocumentMoniker": "TecnoFuturo\\Turno.cs",
+              "ToolTip": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\Turno.cs",
+              "RelativeToolTip": "TecnoFuturo\\Turno.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T15:43:43.766Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\Program.cs",
+              "RelativeDocumentMoniker": "TecnoFuturo\\Program.cs",
+              "ToolTip": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\Program.cs",
+              "RelativeToolTip": "TecnoFuturo\\Program.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAiwD8AAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T15:43:07.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Modulo.cs",
+              "DocumentMoniker": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\Modulo.cs",
+              "RelativeDocumentMoniker": "TecnoFuturo\\Modulo.cs",
+              "ToolTip": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\Modulo.cs",
+              "RelativeToolTip": "TecnoFuturo\\Modulo.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T15:45:05.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Alumno.cs",
+              "DocumentMoniker": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\Alumno.cs",
+              "RelativeDocumentMoniker": "TecnoFuturo\\Alumno.cs",
+              "ToolTip": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\Alumno.cs",
+              "RelativeToolTip": "TecnoFuturo\\Alumno.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwBYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T15:57:24.593Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Profesor.cs",
+              "DocumentMoniker": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\Profesor.cs",
+              "RelativeDocumentMoniker": "TecnoFuturo\\Profesor.cs",
+              "ToolTip": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\Profesor.cs",
+              "RelativeToolTip": "TecnoFuturo\\Profesor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T15:55:49.767Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CicloFormativo.cs",
+              "DocumentMoniker": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\CicloFormativo.cs",
+              "RelativeDocumentMoniker": "TecnoFuturo\\CicloFormativo.cs",
+              "ToolTip": "C:\\Users\\profe\\source\\repos\\TecnoFuturo\\TecnoFuturo\\CicloFormativo.cs",
+              "RelativeToolTip": "TecnoFuturo\\CicloFormativo.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAIwAQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T15:46:14.037Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
