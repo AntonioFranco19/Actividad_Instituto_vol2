@@ -49,3 +49,4 @@ C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.Console\obj\Debu
 C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.Console\obj\Debug\net10.0\TecnoFuturo.Console.pdb
 C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.Console\obj\Debug\net10.0\TecnoFuturo.Console.genruntimeconfig.cache
 C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.Console\obj\Debug\net10.0\ref\TecnoFuturo.Console.dll
+C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.Console\obj\Debug\net10.0\TecnoFuturo.Console.sourcelink.json

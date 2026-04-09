@@ -13,3 +13,4 @@ C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.InMemory\obj\Deb
 C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.InMemory\obj\Debug\net10.0\refint\TecnoFuturo.InMemory.dll
 C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.InMemory\obj\Debug\net10.0\TecnoFuturo.InMemory.pdb
 C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.InMemory\obj\Debug\net10.0\ref\TecnoFuturo.InMemory.dll
+C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.InMemory\obj\Debug\net10.0\TecnoFuturo.InMemory.sourcelink.json

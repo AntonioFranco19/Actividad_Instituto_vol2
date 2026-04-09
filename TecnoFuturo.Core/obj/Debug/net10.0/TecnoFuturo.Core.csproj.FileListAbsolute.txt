@@ -10,3 +10,4 @@ C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.Core\obj\Debug\n
 C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.Core\obj\Debug\net10.0\refint\TecnoFuturo.Core.dll
 C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.Core\obj\Debug\net10.0\TecnoFuturo.Core.pdb
 C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.Core\obj\Debug\net10.0\ref\TecnoFuturo.Core.dll
+C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.Core\obj\Debug\net10.0\TecnoFuturo.Core.sourcelink.json
