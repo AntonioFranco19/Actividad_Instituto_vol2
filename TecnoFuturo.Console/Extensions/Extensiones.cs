@@ -30,10 +30,7 @@ public static class Extensiones
         System.Console.WriteLine(new string('-', 85));
         foreach (var ciclosFormativo in ciclosFormativos)
         {
-            System.Console.WriteLine($"CODIGO : {ciclosFormativo.CicloFormativoId}");
-            System.Console.WriteLine($"NOMBRE : {ciclosFormativo.Nombre}");
-            System.Console.WriteLine($"TUNO ..: {ciclosFormativo.Turno}");
-            System.Console.WriteLine(new string('-', 85));
+            
         }
     }
 
@@ -46,13 +43,11 @@ public static class Extensiones
             System.Console.WriteLine(new string('-', 85));
             foreach (var modulo in modulos)
             {
-                System.Console.WriteLine($"CODIGO .: {modulo.ModuloId}");
-                System.Console.WriteLine($"NOMBRE .: {modulo.Nombre}");
-                System.Console.WriteLine($"HORAS ..: {modulo.Horas:N0}");
+                System.Console.WriteLine(modulo.ObtenerFicha());
                 if (modulo.ProfesorNif != null)
                 {
                     var profesor = profesorRepository.ObtenerProfesorPorNif(modulo.ProfesorNif);
-                    System.Console.WriteLine($"PROFESOR : {profesor.Nombre}");
+                    System.Console.WriteLine($"PROFESOR : {profesor!.Nombre}");
                 }
                 else
                 {
@@ -76,10 +71,7 @@ public static class Extensiones
             System.Console.WriteLine(new string('-', 85));
             foreach (var profesor in profesores)
             {
-                System.Console.WriteLine($"NOMBRE: {profesor.Nombre}");
-                System.Console.WriteLine($"NIF   : {profesor.Nif}");
-                System.Console.WriteLine($"EMAIL : {profesor.Email}");
-                System.Console.WriteLine(new string('-', 85));
+                System.Console.WriteLine(profesor.ObtenerFicha());
             }
         }
         else
@@ -100,11 +92,7 @@ public static class Extensiones
             System.Console.WriteLine(new string('-', 102));
             foreach (var alumno in alumnos)
             {
-                System.Console.WriteLine($"NIF ,,,,,,: {alumno.Nif}");
-                System.Console.WriteLine($"NOMBRE  ..: {alumno.Nombre}");
-                System.Console.WriteLine($"EMAIL ....: {alumno.Email}");
-                System.Console.WriteLine($"DIRECCION : {alumno.Direccíon}");
-                System.Console.WriteLine(new string('-', 102));
+                System.Console.WriteLine(alumno.ObtenerFicha());
             }
 
         }

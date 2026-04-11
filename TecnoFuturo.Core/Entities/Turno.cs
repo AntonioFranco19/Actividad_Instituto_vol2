@@ -1,4 +1,4 @@
-﻿namespace TecnoFuturo.Core;
+﻿namespace TecnoFuturo.Core.Entities;
 
 public enum Turno
 {
