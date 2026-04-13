@@ -30,7 +30,7 @@ public static class Extensiones
         System.Console.WriteLine(new string('-', 85));
         foreach (var ciclosFormativo in ciclosFormativos)
         {
-            
+            System.Console.WriteLine(ciclosFormativo.ObtenerFicha());
         }
     }
 
