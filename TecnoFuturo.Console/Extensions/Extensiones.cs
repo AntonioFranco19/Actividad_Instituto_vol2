@@ -1,3 +1,4 @@
+using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
 
@@ -71,7 +72,8 @@ public static class Extensiones
             System.Console.WriteLine(new string('-', 85));
             foreach (var profesor in profesores)
             {
-                System.Console.WriteLine(profesor.ObtenerFicha());
+                var profDto = ConvertirProfesoraDto(profesor);
+                System.Console.WriteLine(profDto);
             }
         }
         else
@@ -79,7 +81,17 @@ public static class Extensiones
             System.Console.WriteLine("NO HAY PROFESORES REGISTRADOS");
         }
     }
-    
+
+    private static ProfesorDTO ConvertirProfesoraDto(Profesor? profesor)
+    {
+        if (profesor != null)
+        {
+            var profDto = new ProfesorDTO(profesor.Nif, profesor.Nombre, profesor.Email, profesor.Email, profesor.Telefono, profesor.CentroId);
+            return profDto;
+        }
+
+        throw new ArgumentException("El profesor es nulo");
+    }
 
     public static void MostrarAlumnos(this CicloFormativo cicloFormativo, IAlumnoRepository alumnoRepository)
     {
@@ -92,8 +104,10 @@ public static class Extensiones
             System.Console.WriteLine(new string('-', 102));
             foreach (var alumno in alumnos)
             {
-                System.Console.WriteLine(alumno.ObtenerFicha());
+                var dto = ConvertirAlumnoAdto(alumno);
+                System.Console.WriteLine(dto);
             }
+            System.Console.WriteLine(new string('-', 102));
 
         }
         else
@@ -101,6 +115,17 @@ public static class Extensiones
             System.Console.WriteLine("NO HAY ALUMNOS MATRICULADOS");
         }
 
+    }
+
+    private static AlumnoDTO ConvertirAlumnoAdto(Alumno? p)
+    {
+        if (p != null)
+        {
+            var alumDto = new AlumnoDTO(p.Nif, p.Nombre, p.Email, p.Email, p.Telefono, p.CentroId, p.CicloFormativoId);
+            return alumDto;
+        }
+
+        throw new ArgumentException("El alumno es nulo");
     }
 
     public static void MostrarResumen(this Centro centro, ICicloFormativoRepository cicloFormativoRepository, IAlumnoRepository alumnoRepository)

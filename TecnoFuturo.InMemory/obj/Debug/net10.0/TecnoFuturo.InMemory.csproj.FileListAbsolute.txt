@@ -14,3 +14,19 @@ C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.InMemory\obj\Deb
 C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.InMemory\obj\Debug\net10.0\TecnoFuturo.InMemory.pdb
 C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.InMemory\obj\Debug\net10.0\ref\TecnoFuturo.InMemory.dll
 C:\Users\dam1\Downloads\TecnoFuturo (2)\TecnoFuturo\TecnoFuturo.InMemory\obj\Debug\net10.0\TecnoFuturo.InMemory.sourcelink.json
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\bin\Debug\net10.0\TecnoFuturo.InMemory.deps.json
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\bin\Debug\net10.0\TecnoFuturo.InMemory.dll
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\bin\Debug\net10.0\TecnoFuturo.InMemory.pdb
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\bin\Debug\net10.0\TecnoFuturo.Core.dll
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\bin\Debug\net10.0\TecnoFuturo.Core.pdb
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\obj\Debug\net10.0\TecnoFuturo.InMemory.csproj.AssemblyReference.cache
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\obj\Debug\net10.0\TecnoFuturo.InMemory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\obj\Debug\net10.0\TecnoFuturo.InMemory.AssemblyInfoInputs.cache
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\obj\Debug\net10.0\TecnoFuturo.InMemory.AssemblyInfo.cs
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\obj\Debug\net10.0\TecnoFuturo.InMemory.csproj.CoreCompileInputs.cache
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\obj\Debug\net10.0\TecnoFuturo.InMemory.sourcelink.json
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\obj\Debug\net10.0\TecnoFut.0BAC7A67.Up2Date
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\obj\Debug\net10.0\TecnoFuturo.InMemory.dll
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\obj\Debug\net10.0\refint\TecnoFuturo.InMemory.dll
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\obj\Debug\net10.0\TecnoFuturo.InMemory.pdb
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.InMemory\obj\Debug\net10.0\ref\TecnoFuturo.InMemory.dll
