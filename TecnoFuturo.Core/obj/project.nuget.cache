@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "+CdAakgDcyc=",
+  "dgSpecHash": "Qjh5xWdBO3o=",
   "success": true,
-  "projectFilePath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj",
+  "projectFilePath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo (2)\\TecnoFuturo\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\afran\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.5\\microsoft.extensions.dependencyinjection.10.0.5.nupkg.sha512",
-    "C:\\Users\\afran\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.5\\microsoft.extensions.dependencyinjection.abstractions.10.0.5.nupkg.sha512",
-    "C:\\Users\\afran\\.nuget\\packages\\microsoft.extensions.logging\\10.0.5\\microsoft.extensions.logging.10.0.5.nupkg.sha512",
-    "C:\\Users\\afran\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.5\\microsoft.extensions.logging.abstractions.10.0.5.nupkg.sha512",
-    "C:\\Users\\afran\\.nuget\\packages\\microsoft.extensions.options\\10.0.5\\microsoft.extensions.options.10.0.5.nupkg.sha512",
-    "C:\\Users\\afran\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.5\\microsoft.extensions.primitives.10.0.5.nupkg.sha512"
+    "C:\\Users\\dam1\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.5\\microsoft.extensions.dependencyinjection.10.0.5.nupkg.sha512",
+    "C:\\Users\\dam1\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.5\\microsoft.extensions.dependencyinjection.abstractions.10.0.5.nupkg.sha512",
+    "C:\\Users\\dam1\\.nuget\\packages\\microsoft.extensions.logging\\10.0.5\\microsoft.extensions.logging.10.0.5.nupkg.sha512",
+    "C:\\Users\\dam1\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.5\\microsoft.extensions.logging.abstractions.10.0.5.nupkg.sha512",
+    "C:\\Users\\dam1\\.nuget\\packages\\microsoft.extensions.options\\10.0.5\\microsoft.extensions.options.10.0.5.nupkg.sha512",
+    "C:\\Users\\dam1\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.5\\microsoft.extensions.primitives.10.0.5.nupkg.sha512"
   ],
   "logs": []
 }

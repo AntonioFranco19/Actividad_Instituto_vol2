@@ -1,14 +1,15 @@
+using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 
 namespace TecnoFuturo.Core.Repositories;
 
 public interface IModuloRepository
 {
-    IReadOnlyList<Modulo> ObtenerModulos();
-    IReadOnlyList<Modulo> ObtenerModulosPorCicloFormativo(string cicloFormativoId);
-    IReadOnlyList<Modulo> ObtenerModulosPorProfesor(string profesorNif);
-    Modulo? ObtenerModuloPorId(int id);
-    Modulo InsertarModulo(Modulo modulo);
-    Modulo ModificarModulo(Modulo modulo);
+    IReadOnlyList<ModuloDTO> ObtenerModulos();
+    IReadOnlyList<ModuloDTO> ObtenerModulosPorCicloFormativo(string cicloFormativoId);
+    IReadOnlyList<ModuloDTO> ObtenerModulosPorProfesor(string profesorNif);
+    ModuloDTO? ObtenerModuloPorId(int id);
+    ModuloDTO InsertarModulo(Modulo modulo);
+    ModuloDTO ModificarModulo(Modulo modulo);
     bool BorrarModulo(int id);
 }

@@ -4,7 +4,7 @@ public record ModuloDTO
     (
         string CicloFormativoId,
         int ModuloId,
-        string Nombre,
+        string? Nombre,
         int Horas,
-        string ProfesorNif
+        string? ProfesorNif
         );

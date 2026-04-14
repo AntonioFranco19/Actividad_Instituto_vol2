@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
 
@@ -14,41 +15,42 @@ public class CentroListaRepository : ICentroRepository
        _serviceProvider = serviceProvider;
     }
     
-    public IReadOnlyList<Centro> ObtenerCentros()
+    public IReadOnlyList<CentroDTO> ObtenerCentros()
     {
-        return _centros.ToList();
+        return _centros.Select(x => ToMap(x)).ToList();
     }
 
-    public Centro? ObtenerCentroPorId(int id)
+    public CentroDTO? ObtenerCentroPorId(int id)
     {
-        return _centros.Find(n => n.CentroId == id);
+        Centro? centro = _centros.Find(n => n.CentroId == id);
+        if (centro != null) return ToMap(centro);
+        return null;
     }
 
-    public Centro InsertarCentro(Centro centro)
+    public CentroDTO InsertarCentro(Centro centro)
     {
-        Centro? igual = ObtenerCentroPorId(centro.CentroId);
+        CentroDTO? igual = ObtenerCentroPorId(centro.CentroId);
         
         if (igual == null)
         {
             _centros.Add(centro);
-            return centro;
+            return ToMap(centro);
         }
         throw new InvalidOperationException("El centro ya existe");
     }
 
-    public Centro ModificarCentro(Centro centro)
+    public CentroDTO ModificarCentro(Centro centro)
     {
-        Centro? igual = ObtenerCentroPorId(centro.CentroId);
-        
-        if (igual == null)
-        {
-            throw new InvalidOperationException("El centro no existe");
-        }
+        CentroDTO? igualDto = ObtenerCentroPorId(centro.CentroId);
+        if (igualDto == null) throw new InvalidOperationException("El centro no existe");
+
+        Centro igual = ToEntity(igualDto);
 
         var index = _centros.IndexOf(igual);
         _centros.Remove(igual);
-        _centros.IndexOf(centro, index);
-        return centro;
+        var indexOf = _centros.IndexOf(centro, index);
+
+        return ToMap(centro);
     }
 
     public bool BorrarCentro(int id)
@@ -77,6 +79,27 @@ public class CentroListaRepository : ICentroRepository
             throw new InvalidOperationException("El centro tiene profesores asociados");
         }
         
-        return _centros.Remove(entidad);
+        return _centros.Remove(ToEntity(entidad));
+    }
+    
+    private CentroDTO ToMap(Centro a)
+    {
+        return new CentroDTO(
+            CentroId: a.CentroId, 
+            Nombre: a.Nombre, 
+            Direccion: a.Direccion, 
+            Telefono: a.Telefono
+        );
+    }
+
+    private Centro ToEntity(CentroDTO a)
+    {
+        return new Centro
+        {
+            CentroId = a.CentroId,
+            Direccion = a.Direccion,
+            Nombre = a.Nombre,
+            Telefono = a.Telefono
+        };
     }
 }

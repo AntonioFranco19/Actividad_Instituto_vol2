@@ -1,12 +1,13 @@
+using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 
 namespace TecnoFuturo.Core.Repositories;
 
 public interface ICentroRepository
 {
-    IReadOnlyList<Centro> ObtenerCentros();
-    Centro? ObtenerCentroPorId(int id);
-    Centro InsertarCentro(Centro centro);
-    Centro ModificarCentro(Centro centro);
+    IReadOnlyList<CentroDTO> ObtenerCentros();
+    CentroDTO? ObtenerCentroPorId(int id);
+    CentroDTO InsertarCentro(Centro centro);
+    CentroDTO ModificarCentro(Centro centro);
     bool BorrarCentro(int id);
 }

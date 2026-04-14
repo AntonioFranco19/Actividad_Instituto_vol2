@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TecnoFuturo.InMemory")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4274fb657f4eb0ed1eb027a88a8685c070e1c2be")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64fb2f0129c33816e632f2ca5f8c902edb827dc8")]
 [assembly: System.Reflection.AssemblyProductAttribute("TecnoFuturo.InMemory")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TecnoFuturo.InMemory")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

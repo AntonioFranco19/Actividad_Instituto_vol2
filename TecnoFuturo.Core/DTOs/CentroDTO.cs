@@ -4,6 +4,6 @@ public record CentroDTO
     (
         int CentroId,
         string Nombre,
-        string Direccion,
-        string Telefono
+        string? Direccion,
+        string? Telefono
         );
