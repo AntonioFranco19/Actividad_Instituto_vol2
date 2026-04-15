@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
 
@@ -14,22 +15,24 @@ public class ProfesorRepository : IProfesorRepository
         _serviceProvider = serviceProvider;
     }
     
-    public IReadOnlyList<Profesor> ObtenerProfesores()
+    public IReadOnlyList<ProfesorDTO> ObtenerProfesores()
     {
-        return _profesores.Values.ToList();
+        return _profesores.Values.Select(x => ToMap(x)).ToList();
     }
 
-    public IReadOnlyList<Profesor> ObtenerProfesoresPorCentro(int centroId)
+    public IReadOnlyList<ProfesorDTO> ObtenerProfesoresPorCentro(int centroId)
     {
-        return _profesores.Values.Where(p => p.CentroId == centroId).ToList();
+        return _profesores.Values.Where(p => p.CentroId == centroId).Select(x=> ToMap(x)).ToList();
     }
 
-    public Profesor? ObtenerProfesorPorNif(string nif)
+    public ProfesorDTO? ObtenerProfesorPorNif(string nif)
     {
-        return _profesores.GetValueOrDefault(nif);
+        Profesor? profesor = _profesores.GetValueOrDefault(nif);
+        if (profesor != null) return ToMap(profesor);
+        return null;
     }
 
-    public Profesor InsertarProfesor(Profesor profesor)
+    public ProfesorDTO InsertarProfesor(Profesor profesor)
     {
         var centroRepository = _serviceProvider.GetRequiredService<ICentroRepository>();
         if (centroRepository.ObtenerCentroPorId(profesor.CentroId) == null)
@@ -42,10 +45,10 @@ public class ProfesorRepository : IProfesorRepository
             throw new ArgumentException("El profesor ya existe", nameof(profesor));
         }
         
-        return _profesores[profesor.Nif] = profesor;
+        return ToMap(_profesores[profesor.Nif] = profesor);
     }
 
-    public Profesor ModificarProfesor(Profesor profesor)
+    public ProfesorDTO ModificarProfesor(Profesor profesor)
     {
         var centroRepository = _serviceProvider.GetRequiredService<ICentroRepository>();
         if (centroRepository.ObtenerCentroPorId(profesor.CentroId) == null)
@@ -58,7 +61,7 @@ public class ProfesorRepository : IProfesorRepository
             throw new ArgumentException("El profesor no existe", nameof(profesor));
         }
         
-        return _profesores[profesor.Nif] = profesor;
+        return ToMap(_profesores[profesor.Nif] = profesor);
     }
 
     public bool BorrarProfesor(string nif)
@@ -75,5 +78,17 @@ public class ProfesorRepository : IProfesorRepository
         return modulosPorProfesor.Count != 0
             ? throw new InvalidOperationException("El profesor tiene modulos asignados")
             : _profesores.Remove(nif);
+    }
+    
+    private ProfesorDTO ToMap(Profesor a)
+    {
+        return new ProfesorDTO(
+            Nif: a.Nif, 
+            Nombre: a.Nombre, 
+            Email: a.Email, 
+            Direccion: a.Direccíon, 
+            Telefono: a.Telefono,
+            CentroId: a.CentroId
+            );
     }
 }

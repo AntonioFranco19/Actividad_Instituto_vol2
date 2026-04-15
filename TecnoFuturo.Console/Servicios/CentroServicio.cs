@@ -4,9 +4,11 @@ using TecnoFuturo.App.Configuraciones;
 using TecnoFuturo.Console.Extensions;
 using TecnoFuturo.Console.Helpers;
 using TecnoFuturo.Core;
+using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
 using TecnoFuturo.Core.Validators;
+using TecnoFuturo.Data.Repsoitories;
 
 namespace TecnoFuturo.Console.Servicios;
 
@@ -20,8 +22,7 @@ public class CentroServicio
     private readonly IModuloRepository _moduloRepository;
     private readonly ILogger<CentroServicio> _logger;
 
-    public CentroServicio(IOptions<ConfiguracionCentro> configuracionCentro,
-        ILogger<CentroServicio> logger, ICentroRepository centroRepository, IAlumnoRepository alumnoRepository, IProfesorRepository profesorRepository, ICicloFormativoRepository cicloFormativoRepository, IModuloRepository moduloRepository)
+    public CentroServicio(IOptions<ConfiguracionCentro> configuracionCentro, ILogger<CentroServicio> logger, ICentroRepository centroRepository, IAlumnoRepository alumnoRepository, IProfesorRepository profesorRepository, ICicloFormativoRepository cicloFormativoRepository, IModuloRepository moduloRepository)
     {
         _logger = logger;
         _centroRepository = centroRepository;
@@ -256,7 +257,7 @@ public class CentroServicio
 
     private CicloFormativo? SeleccionarCicloFormativo()
     {
-        CicloFormativo? cicloFormativo;
+        CicloFormativoDTO? cicloFormativo;
         _centro.MostarCiclosFormativos(_cicloFormativoRepository);
         do
         {
@@ -276,7 +277,7 @@ public class CentroServicio
 
         } while (cicloFormativo == null);
 
-        return cicloFormativo;
+        return ToEntity(cicloFormativo);
     }
 
     private void CrearModulo(CicloFormativo cicloFormativo)
@@ -313,7 +314,7 @@ public class CentroServicio
 
     private Modulo? SeleccionarModulo(CicloFormativo cicloFormativo)
     {
-        Modulo? modulo;
+        ModuloDTO? modulo;
         cicloFormativo.MostarModulos(_moduloRepository, _profesorRepository);
         do
         {
@@ -329,7 +330,7 @@ public class CentroServicio
 
         } while (modulo == null);
 
-        return modulo;
+        return ToEntity(modulo);
     }
 
     private void RegistrarProfesor()
@@ -364,7 +365,7 @@ public class CentroServicio
 
     private void RegistrarProfesorAModulo(Modulo modulo)
     {
-        Profesor? profesor;
+        ProfesorDTO? profesor;
         System.Console.WriteLine("REGISTRO DE PROFESOR A MODULO");
         _centro.MostrarProfesores(_profesorRepository);
 
@@ -437,4 +438,27 @@ public class CentroServicio
             _logger.LogError(ex, "Error al registar un alumno en el ciclo formativo");
         }
     }
+    private static CicloFormativo ToEntity(CicloFormativoDTO a)
+    {
+        return new CicloFormativo
+        {
+            CentroId = a.CentroId,
+            CicloFormativoId = a.CicloFormativoId,
+            Nombre = a.Nombre,
+            Turno = a.Turno
+        };
+    }
+    
+    private static Modulo ToEntity(ModuloDTO a)
+    {
+        return new Modulo
+        {
+            CicloFormativoId =  a.CicloFormativoId,
+            ModuloId = a.ModuloId,
+            Nombre = a.Nombre,
+            Horas = a.Horas,
+            ProfesorNif = a.ProfesorNif
+        };
+    }
+    
 }

@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
 
@@ -15,27 +16,29 @@ public class AlumnoRepository : IAlumnoRepository
         _serviceProvider = serviceProvider;
     }
 
-    public IReadOnlyList<Alumno> ObtenerAlumnos()
+    public IReadOnlyList<AlumnoDTO> ObtenerAlumnos()
     {
-        return _alumnos.Values.ToList();
+        return _alumnos.Values.Select(x => ToMap(x)).ToList();
     }
 
-    public IReadOnlyList<Alumno> ObtenerAlumnosPorCicloFormativo(string cicloFormativoId)
+    public IReadOnlyList<AlumnoDTO> ObtenerAlumnosPorCicloFormativo(string cicloFormativoId)
     {
-        return _alumnos.Values.Where(alumno => alumno.CicloFormativoId == cicloFormativoId).ToList();
+        return _alumnos.Values.Where(alumno => alumno.CicloFormativoId == cicloFormativoId).Select(x => ToMap(x)).ToList();
     }
 
-    public IReadOnlyList<Alumno> ObtenerAlumnosPorCentro(int centroId)
+    public IReadOnlyList<AlumnoDTO> ObtenerAlumnosPorCentro(int centroId)
     {
-        return _alumnos.Values.Where(alumno => alumno.CentroId == centroId).ToList();
+        return _alumnos.Values.Where(alumno => alumno.CentroId == centroId).Select(x => ToMap(x)).ToList();
     }
 
-    public Alumno? ObtenerAlumnoPorNif(string nif)
+    public AlumnoDTO? ObtenerAlumnoPorNif(string nif)
     {
-        return _alumnos.GetValueOrDefault(nif);
+        Alumno? alumno = _alumnos.GetValueOrDefault(nif);
+        if (alumno != null) return ToMap(alumno);
+        return null;
     }
 
-    public Alumno InsertarAlumno(Alumno alumno)
+    public AlumnoDTO InsertarAlumno(Alumno alumno)
     {
         if (_alumnos.ContainsKey(alumno.Nif))
         {
@@ -48,10 +51,10 @@ public class AlumnoRepository : IAlumnoRepository
             throw new ArgumentException("El centro especificado no existe", nameof(alumno));
         }
         
-        return _alumnos[alumno.Nif] = alumno;
+        return ToMap(_alumnos[alumno.Nif] = alumno);
     }
 
-    public Alumno ModificarAlumno(Alumno alumno)
+    public AlumnoDTO ModificarAlumno(Alumno alumno)
     {
         if (!_alumnos.ContainsKey(alumno.Nif))
         {
@@ -64,7 +67,19 @@ public class AlumnoRepository : IAlumnoRepository
             throw new ArgumentException("El centro especificado no existe", nameof(alumno));
         }
         
-        return _alumnos[alumno.Nif] = alumno;
+        return ToMap(_alumnos[alumno.Nif] = alumno);
+    }
+
+    private AlumnoDTO ToMap(Alumno a)
+    {
+        return new AlumnoDTO(
+            Nif: a.Nif, 
+            Nombre: a.Nombre, 
+            Email: a.Email, 
+            Direccion: a.Direccíon, 
+            Telefono: a.Telefono,
+            CentroId: a.CentroId, 
+            CicloFormativoId: a.CicloFormativoId);
     }
 
     public bool BorrarAlumno(string nif)

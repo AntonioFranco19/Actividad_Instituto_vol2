@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.Extensions.Hosting": "10.0.5",
           "TecnoFuturo.Core": "1.0.0",
+          "TecnoFuturo.Data": "1.0.0",
           "TecnoFuturo.InMemory": "1.0.0"
         },
         "runtime": {
@@ -409,6 +410,17 @@
           }
         }
       },
+      "TecnoFuturo.Data/1.0.0": {
+        "dependencies": {
+          "TecnoFuturo.Core": "1.0.0"
+        },
+        "runtime": {
+          "TecnoFuturo.Data.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "TecnoFuturo.InMemory/1.0.0": {
         "dependencies": {
           "TecnoFuturo.Core": "1.0.0"
@@ -625,6 +637,11 @@
       "hashPath": "system.diagnostics.eventlog.10.0.5.nupkg.sha512"
     },
     "TecnoFuturo.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TecnoFuturo.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

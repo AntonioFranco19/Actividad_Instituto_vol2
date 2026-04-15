@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
 
@@ -14,22 +15,24 @@ public class CentroRepository : ICentroRepository
        _serviceProvider = serviceProvider;
     }
     
-    public IReadOnlyList<Centro> ObtenerCentros()
+    public IReadOnlyList<CentroDTO> ObtenerCentros()
     {
-        return _centros.Values.ToList();
+        return _centros.Values.Select(x => ToMap(x)).ToList();
     }
 
-    public Centro? ObtenerCentroPorId(int id)
+    public CentroDTO? ObtenerCentroPorId(int id)
     {
-        return _centros.GetValueOrDefault(id);
+        Centro? centro = _centros.GetValueOrDefault(id);
+        if (centro != null) return ToMap(centro);
+        return null;
     }
 
-    public Centro InsertarCentro(Centro centro)
+    public CentroDTO InsertarCentro(Centro centro)
     {
-        return !_centros.TryAdd(centro.CentroId, centro) ? throw new InvalidOperationException("El centro ya existe") : centro;
+        return !_centros.TryAdd(centro.CentroId, centro) ? throw new InvalidOperationException("El centro ya existe") : ToMap(centro);
     }
 
-    public Centro ModificarCentro(Centro centro)
+    public CentroDTO ModificarCentro(Centro centro)
     {
         if (!_centros.ContainsKey(centro.CentroId))
         {
@@ -37,7 +40,7 @@ public class CentroRepository : ICentroRepository
         }
 
         _centros[centro.CentroId] = centro;
-        return centro;
+        return ToMap(centro);
     }
 
     public bool BorrarCentro(int id)
@@ -66,5 +69,15 @@ public class CentroRepository : ICentroRepository
         }
         
         return _centros.Remove(id);
+    }
+    
+    private CentroDTO ToMap(Centro a)
+    {
+        return new CentroDTO(
+            CentroId: a.CentroId, 
+            Nombre: a.Nombre, 
+            Direccion: a.Direccion, 
+            Telefono: a.Telefono
+        );
     }
 }

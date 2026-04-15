@@ -31,7 +31,7 @@ public static class Extensiones
         System.Console.WriteLine(new string('-', 85));
         foreach (var ciclosFormativo in ciclosFormativos)
         {
-            System.Console.WriteLine(ciclosFormativo.ObtenerFicha());
+            System.Console.WriteLine(ciclosFormativo);
         }
     }
 
@@ -44,7 +44,7 @@ public static class Extensiones
             System.Console.WriteLine(new string('-', 85));
             foreach (var modulo in modulos)
             {
-                System.Console.WriteLine(modulo.ObtenerFicha());
+                System.Console.WriteLine(modulo);
                 if (modulo.ProfesorNif != null)
                 {
                     var profesor = profesorRepository.ObtenerProfesorPorNif(modulo.ProfesorNif);
@@ -72,8 +72,7 @@ public static class Extensiones
             System.Console.WriteLine(new string('-', 85));
             foreach (var profesor in profesores)
             {
-                var profDto = ConvertirProfesoraDto(profesor);
-                System.Console.WriteLine(profDto);
+                System.Console.WriteLine(profesor);
             }
         }
         else
@@ -104,8 +103,7 @@ public static class Extensiones
             System.Console.WriteLine(new string('-', 102));
             foreach (var alumno in alumnos)
             {
-                var dto = ConvertirAlumnoAdto(alumno);
-                System.Console.WriteLine(dto);
+                System.Console.WriteLine(alumno);
             }
             System.Console.WriteLine(new string('-', 102));
 

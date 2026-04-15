@@ -6,6 +6,7 @@ using TecnoFuturo.App.Servicios;
 using TecnoFuturo.Console.Servicios;
 using TecnoFuturo.Core.Repositories;
 using TecnoFuturo.Core.Servicios;
+using TecnoFuturo.Data.Repsoitories;
 using TecnoFuturo.InMemory.Repositories;
 
 namespace TecnoFuturo.Console;
@@ -28,8 +29,9 @@ class Program
         builder.Services.AddSingleton<ICentroRepository, CentroRepository>();
         builder.Services.AddSingleton<IModuloRepository, ModuloRepository>();
         builder.Services.AddSingleton<IProfesorRepository, ProfesorRepository>();
-        builder.Services.AddSingleton<IAlumnoRepository, AlumnoRepository>();
+        builder.Services.AddSingleton<IAlumnoRepository, JsonAlumnoRepository>();
         builder.Services.AddSingleton<ICicloFormativoRepository, CicloFormativoRepository>();
+        // builder.Services.AddSingleton<IAlumnoRepository, JsonAlumnoRepository>();
         builder.Services.AddSingleton<CentroServicio>();
         var host = builder.Build();
 

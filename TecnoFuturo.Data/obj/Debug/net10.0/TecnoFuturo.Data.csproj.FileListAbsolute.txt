@@ -1,0 +1,16 @@
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\bin\Debug\net10.0\TecnoFuturo.Data.deps.json
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\bin\Debug\net10.0\TecnoFuturo.Data.dll
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\bin\Debug\net10.0\TecnoFuturo.Data.pdb
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\bin\Debug\net10.0\TecnoFuturo.Core.dll
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\bin\Debug\net10.0\TecnoFuturo.Core.pdb
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\obj\Debug\net10.0\TecnoFuturo.Data.csproj.AssemblyReference.cache
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\obj\Debug\net10.0\TecnoFuturo.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\obj\Debug\net10.0\TecnoFuturo.Data.AssemblyInfoInputs.cache
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\obj\Debug\net10.0\TecnoFuturo.Data.AssemblyInfo.cs
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\obj\Debug\net10.0\TecnoFuturo.Data.csproj.CoreCompileInputs.cache
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\obj\Debug\net10.0\TecnoFuturo.Data.sourcelink.json
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\obj\Debug\net10.0\TecnoFut.FE8C3B84.Up2Date
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\obj\Debug\net10.0\TecnoFuturo.Data.dll
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\obj\Debug\net10.0\refint\TecnoFuturo.Data.dll
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\obj\Debug\net10.0\TecnoFuturo.Data.pdb
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Data\obj\Debug\net10.0\ref\TecnoFuturo.Data.dll
