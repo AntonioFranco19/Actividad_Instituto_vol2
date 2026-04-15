@@ -618,6 +618,19 @@
           "bin/placeholder/TecnoFuturo.Core.dll": {}
         }
       },
+      "TecnoFuturo.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "TecnoFuturo.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TecnoFuturo.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TecnoFuturo.Data.dll": {}
+        }
+      },
       "TecnoFuturo.InMemory/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -1542,6 +1555,11 @@
       "path": "../TecnoFuturo.Core/TecnoFuturo.Core.csproj",
       "msbuildProject": "../TecnoFuturo.Core/TecnoFuturo.Core.csproj"
     },
+    "TecnoFuturo.Data/1.0.0": {
+      "type": "project",
+      "path": "../TecnoFuturo.Data/TecnoFuturo.Data.csproj",
+      "msbuildProject": "../TecnoFuturo.Data/TecnoFuturo.Data.csproj"
+    },
     "TecnoFuturo.InMemory/1.0.0": {
       "type": "project",
       "path": "../TecnoFuturo.InMemory/TecnoFuturo.InMemory.csproj",
@@ -1552,6 +1570,7 @@
     "net10.0": [
       "Microsoft.Extensions.Hosting >= 10.0.5",
       "TecnoFuturo.Core >= 1.0.0",
+      "TecnoFuturo.Data >= 1.0.0",
       "TecnoFuturo.InMemory >= 1.0.0"
     ]
   },
@@ -1562,11 +1581,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dam1\\Downloads\\TecnoFuturo (2)\\TecnoFuturo\\TecnoFuturo.Console\\TecnoFuturo.Console.csproj",
+      "projectUniqueName": "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Console\\TecnoFuturo.Console.csproj",
       "projectName": "TecnoFuturo.Console",
-      "projectPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo (2)\\TecnoFuturo\\TecnoFuturo.Console\\TecnoFuturo.Console.csproj",
+      "projectPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Console\\TecnoFuturo.Console.csproj",
       "packagesPath": "C:\\Users\\dam1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo (2)\\TecnoFuturo\\TecnoFuturo.Console\\obj\\",
+      "outputPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Console\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1579,19 +1598,18 @@
       "originalTargetFrameworks": [
         "net10.0"
       ],
-      "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
-      },
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\dam1\\Downloads\\TecnoFuturo (2)\\TecnoFuturo\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj": {
-              "projectPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo (2)\\TecnoFuturo\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj"
+            "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj": {
+              "projectPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj"
             },
-            "C:\\Users\\dam1\\Downloads\\TecnoFuturo (2)\\TecnoFuturo\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj": {
-              "projectPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo (2)\\TecnoFuturo\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj"
+            "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Data\\TecnoFuturo.Data.csproj": {
+              "projectPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Data\\TecnoFuturo.Data.csproj"
+            },
+            "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj": {
+              "projectPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj"
             }
           }
         }

@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TecnoFuturo.Core\TecnoFuturo.Core.csproj" />
+    <ProjectReference Include="..\TecnoFuturo.Data\TecnoFuturo.Data.csproj" />
     <ProjectReference Include="..\TecnoFuturo.InMemory\TecnoFuturo.InMemory.csproj" />
   </ItemGroup>
 

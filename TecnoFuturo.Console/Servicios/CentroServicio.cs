@@ -8,6 +8,7 @@ using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
 using TecnoFuturo.Core.Validators;
+using TecnoFuturo.Data.Repsoitories;
 
 namespace TecnoFuturo.Console.Servicios;
 
@@ -21,8 +22,7 @@ public class CentroServicio
     private readonly IModuloRepository _moduloRepository;
     private readonly ILogger<CentroServicio> _logger;
 
-    public CentroServicio(IOptions<ConfiguracionCentro> configuracionCentro,
-        ILogger<CentroServicio> logger, ICentroRepository centroRepository, IAlumnoRepository alumnoRepository, IProfesorRepository profesorRepository, ICicloFormativoRepository cicloFormativoRepository, IModuloRepository moduloRepository)
+    public CentroServicio(IOptions<ConfiguracionCentro> configuracionCentro, ILogger<CentroServicio> logger, ICentroRepository centroRepository, IAlumnoRepository alumnoRepository, IProfesorRepository profesorRepository, ICicloFormativoRepository cicloFormativoRepository, IModuloRepository moduloRepository)
     {
         _logger = logger;
         _centroRepository = centroRepository;
