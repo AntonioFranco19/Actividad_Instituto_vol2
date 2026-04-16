@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
+using TecnoFuturo.Core.Validators;
 
 namespace TecnoFuturo.Data.CSVRepositories;
 
@@ -27,14 +28,12 @@ public class CsvAlumnoRepository : IAlumnoRepository
     {
         try
         {
-            using (FileStream fileStream = new FileStream(SaveFile, FileMode.OpenOrCreate))
+            using FileStream fileStream = new FileStream(SaveFile, FileMode.OpenOrCreate);
+            using (StreamWriter writer = new StreamWriter(fileStream))
             {
-                using (StreamWriter writer = new StreamWriter(fileStream))
+                foreach (var value in _alumnos.Values)
                 {
-                    foreach (var value in _alumnos.Values)
-                    {
-                        writer.WriteLine($"{value.Nif};{value.Nombre};{value.Email};{value.Direccíon};{value.Telefono};{value.CentroId};{value.CicloFormativoId}");
-                    }
+                    writer.WriteLine($"{value.Nif};{value.Nombre};{value.Email};{value.Direccíon};{value.Telefono};{value.CentroId};{value.CicloFormativoId}");
                 }
             }
         }
@@ -83,14 +82,21 @@ public class CsvAlumnoRepository : IAlumnoRepository
 
     private Alumno? ConvertirStringAAlumno(string? cadena)
     {
-        if (cadena != null && !Regex.IsMatch(cadena, @"^([^;]+);([^;]+);([^;]+);([^;]+);([^;]+);([^;]+);([^;]+)$")) return null;
+        if (cadena == null) return null;
+        if (!Regex.IsMatch(cadena, @"^([^;]+);([^;]+);([^;]+);([^;]+);([^;]+);([^;]+);([^;]+)$")) return null;
+        
         string[] campos = cadena.Split(';');
+
+        if (campos.Length != 7)
+        {
+            return null;
+        }
 
         if (!int.TryParse(campos[5], out int centroId))
         {
             centroId = 0;
         }
-        return new Alumno
+        Alumno al = new Alumno
         {
             Nif = campos[0],
             Nombre = campos[1],
@@ -100,6 +106,10 @@ public class CsvAlumnoRepository : IAlumnoRepository
             CentroId = centroId,
             CicloFormativoId = campos[6]
         };
+        
+        AlumnoValidator validator = new AlumnoValidator();
+
+        return validator.Validate(al) ? al : null;
     }
 
     public IReadOnlyList<AlumnoDTO> ObtenerAlumnosPorCicloFormativo(string cicloFormativoId)
