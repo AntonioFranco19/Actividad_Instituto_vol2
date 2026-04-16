@@ -120,6 +120,17 @@ public class JsonAlumnoRepository : IAlumnoRepository
         return ToMap(alumno);
     }
 
+    public bool BorrarAlumno(string nif)
+    {
+        if (!_alumnos.ContainsKey(nif))
+        {
+            return false;
+        }
+        bool exito = _alumnos.Remove(nif);
+        if(exito) GuardarEnArchivo();
+        return exito;
+    }
+    
     private AlumnoDTO ToMap(Alumno a)
     {
         return new AlumnoDTO(
@@ -130,14 +141,5 @@ public class JsonAlumnoRepository : IAlumnoRepository
             Telefono: a.Telefono,
             CentroId: a.CentroId, 
             CicloFormativoId: a.CicloFormativoId);
-    }
-
-    public bool BorrarAlumno(string nif)
-    {
-        if (!_alumnos.ContainsKey(nif))
-        {
-            return false;
-        }
-        return _alumnos.Remove(nif);
     }
 }

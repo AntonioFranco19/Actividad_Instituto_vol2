@@ -126,11 +126,12 @@ public class JsonProfesorRepository : IProfesorRepository
         var moduloRepository = _serviceProvider.GetRequiredService<IModuloRepository>();
         var modulosPorProfesor = moduloRepository.ObtenerModulosPorProfesor(nif);
         if (modulosPorProfesor.Count != 0) throw new InvalidOperationException("El profesor tiene modulos asignados");
-         _profesores.Remove(nif);
-         GuardarEnArchivo();
-         return true;
+
+        bool exito = _profesores.Remove(nif);
+        if (exito) GuardarEnArchivo();
+        return exito;
     }
-    
+
     private ProfesorDTO ToMap(Profesor a)
     {
         return new ProfesorDTO(
