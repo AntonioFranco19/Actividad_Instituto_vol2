@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+using Microsoft.Extensions.DependencyInjection;
 using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
@@ -7,15 +9,61 @@ namespace TecnoFuturo.Data.Repsoitories;
 
 public class JsonCicloFormativoRepository : ICicloFormativoRepository
 {
-        private readonly IServiceProvider _serviceProvider;
-    private readonly Dictionary<string, CicloFormativo> _ciclosFormativos = [];
+    private readonly IServiceProvider _serviceProvider;
+    private Dictionary<string, CicloFormativo> _ciclosFormativos;
+    private const string SaveFile = "ciclosformativos.json";
     
     
     public JsonCicloFormativoRepository(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
+        CargarDatos();
     }
-    
+
+    private void GuardarEnArchivo()
+    {
+        try
+        {
+            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
+            var json = JsonSerializer.Serialize(_ciclosFormativos.Values, options);
+            File.WriteAllText(SaveFile, json);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("No se han podido guardar los datos.");
+            throw;
+        }
+        
+    }
+
+    private void CargarDatos()
+    {
+        try
+        {
+            if (!File.Exists(SaveFile))
+            {
+                _ciclosFormativos = new Dictionary<string, CicloFormativo>();
+                return; 
+            }
+
+            string json = File.ReadAllText(SaveFile);
+
+            if (string.IsNullOrEmpty(json))
+            {
+                _ciclosFormativos = new Dictionary<string, CicloFormativo>();
+                return;
+            }
+
+            var datos = JsonSerializer.Deserialize<List<CicloFormativo>>(json);
+        
+            _ciclosFormativos = datos!.ToDictionary(x => x.CicloFormativoId);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("No se han podido cargar los datos.");
+            throw;
+        }
+    }
     public IReadOnlyList<CicloFormativoDTO> ObtenerCiclosFormativos()
     {
         return _ciclosFormativos.Values.Select(x => ToMap(x)).ToList();
@@ -44,6 +92,7 @@ public class JsonCicloFormativoRepository : ICicloFormativoRepository
         
         if (_ciclosFormativos.TryAdd(cicloFormativo.CicloFormativoId, cicloFormativo))
         {
+            GuardarEnArchivo();
             return ToMap(cicloFormativo);
         }
 
@@ -64,7 +113,9 @@ public class JsonCicloFormativoRepository : ICicloFormativoRepository
             throw new ArgumentException("El ciclo formativo no existe", nameof(cicloFormativo));
         }
         
-        return ToMap(_ciclosFormativos[cicloFormativo.CicloFormativoId] = cicloFormativo);
+        _ciclosFormativos[cicloFormativo.CicloFormativoId] = cicloFormativo;
+        GuardarEnArchivo();
+        return ToMap(cicloFormativo);
     }
 
     public bool BorrarCicloFormativo(string id)
@@ -86,7 +137,9 @@ public class JsonCicloFormativoRepository : ICicloFormativoRepository
             throw new InvalidOperationException("El ciclo formativo tiene modulos asociados");
         }
         
-        return _ciclosFormativos.Remove(id);
+        bool exito = _ciclosFormativos.Remove(id);
+        if (exito) GuardarEnArchivo();
+        return exito;
     }
     
     private CicloFormativoDTO ToMap(CicloFormativo a)

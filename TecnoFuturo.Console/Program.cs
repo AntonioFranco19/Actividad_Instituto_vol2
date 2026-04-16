@@ -28,9 +28,9 @@ class Program
         builder.Services.AddSingleton<IMensageServicio, MensajeServicio>();
         builder.Services.AddSingleton<ICentroRepository, CentroRepository>();
         builder.Services.AddSingleton<IModuloRepository, ModuloRepository>();
-        builder.Services.AddSingleton<IProfesorRepository, ProfesorRepository>();
+        builder.Services.AddSingleton<IProfesorRepository, JsonProfesorRepository>();
         builder.Services.AddSingleton<IAlumnoRepository, JsonAlumnoRepository>();
-        builder.Services.AddSingleton<ICicloFormativoRepository, CicloFormativoRepository>();
+        builder.Services.AddSingleton<ICicloFormativoRepository, JsonCicloFormativoRepository>();
         // builder.Services.AddSingleton<IAlumnoRepository, JsonAlumnoRepository>();
         builder.Services.AddSingleton<CentroServicio>();
         var host = builder.Build();
