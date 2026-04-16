@@ -26,8 +26,8 @@ class Program
 
         // 3. Registramos nuestro servicio consumidor
         builder.Services.AddSingleton<IMensageServicio, MensajeServicio>();
-        builder.Services.AddSingleton<ICentroRepository, CentroRepository>();
-        builder.Services.AddSingleton<IModuloRepository, ModuloRepository>();
+        builder.Services.AddSingleton<ICentroRepository, JsonCentroRepository>();
+        builder.Services.AddSingleton<IModuloRepository, JsonModuloRepository>();
         builder.Services.AddSingleton<IProfesorRepository, JsonProfesorRepository>();
         builder.Services.AddSingleton<IAlumnoRepository, JsonAlumnoRepository>();
         builder.Services.AddSingleton<ICicloFormativoRepository, JsonCicloFormativoRepository>();
