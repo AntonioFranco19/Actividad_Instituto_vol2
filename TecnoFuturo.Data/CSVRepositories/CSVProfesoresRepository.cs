@@ -54,18 +54,19 @@ public class CsvProfesoresRepository : IProfesorRepository
                 string? linea;
                 while (string.IsNullOrWhiteSpace(linea = reader.ReadLine()))
                 {
-                    string[] datos = linea.Split(';');
+                    Profesor? profe = ConvertirStringAProfesor(linea);
+                    if (profe != null) _profesores.TryAdd(profe.Nif, profe);
                 }
             }
         }
-        catch (Exception e)
+        catch (Exception)
         {
             Console.WriteLine("No se han podido cargar los archivos");
             throw;
         }
     }
     
-    private Alumno? ConvertirStringAProfesor(string? cadena)
+    private Profesor? ConvertirStringAProfesor(string? cadena)
     {
         if (cadena == null) return null;
         if (!Regex.IsMatch(cadena, @"^([^;]+);([^;]+);([^;]+);([^;]+);([^;]+);([^;]+)$")) return null;
@@ -81,7 +82,7 @@ public class CsvProfesoresRepository : IProfesorRepository
         {
             centroId = 0;
         }
-        return new Alumno
+        return new Profesor
         {
             Nif = campos[0],
             Nombre = campos[1],

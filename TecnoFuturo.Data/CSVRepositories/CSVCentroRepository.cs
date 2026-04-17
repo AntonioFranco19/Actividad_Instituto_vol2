@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
+using TecnoFuturo.Core.Validators;
 
 namespace TecnoFuturo.Data.CSVRepositories;
 
@@ -88,13 +89,15 @@ public class CsvCentroRepository : ICentroRepository
         {
             centroId = 0;
         }
-        return new Centro
+        var centro =  new Centro
         {
             CentroId = centroId,
             Nombre = campos[1],
             Direccion = campos[2],
             Telefono = campos[3],
         };
+        CentroValidator validator = new CentroValidator();
+        return validator.Validate(centro) ? centro : null;
     }
     
     public IReadOnlyList<CentroDTO> ObtenerCentros()

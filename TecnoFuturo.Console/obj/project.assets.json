@@ -1575,23 +1575,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dam1\\.nuget\\packages\\": {},
+    "C:\\Users\\afran\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Console\\TecnoFuturo.Console.csproj",
+      "projectUniqueName": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol3\\TecnoFuturo.Console\\TecnoFuturo.Console.csproj",
       "projectName": "TecnoFuturo.Console",
-      "projectPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Console\\TecnoFuturo.Console.csproj",
-      "packagesPath": "C:\\Users\\dam1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Console\\obj\\",
+      "projectPath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol3\\TecnoFuturo.Console\\TecnoFuturo.Console.csproj",
+      "packagesPath": "C:\\Users\\afran\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol3\\TecnoFuturo.Console\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\dam1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\afran\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1600,20 +1600,21 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj": {
-              "projectPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj"
+            "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol3\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj": {
+              "projectPath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol3\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj"
             },
-            "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Data\\TecnoFuturo.Data.csproj": {
-              "projectPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.Data\\TecnoFuturo.Data.csproj"
+            "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol3\\TecnoFuturo.Data\\TecnoFuturo.Data.csproj": {
+              "projectPath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol3\\TecnoFuturo.Data\\TecnoFuturo.Data.csproj"
             },
-            "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj": {
-              "projectPath": "C:\\Users\\dam1\\Downloads\\TecnoFuturo_final\\TecnoFuturo\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj"
+            "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol3\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj": {
+              "projectPath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol3\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj"
             }
           }
         }
@@ -1628,7 +1629,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net10.0": {
@@ -1655,7 +1656,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\dam1\\.dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
