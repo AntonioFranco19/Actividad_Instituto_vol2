@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
+using TecnoFuturo.Core.Validators;
 
 namespace TecnoFuturo.Data.CSVRepositories;
 
@@ -82,7 +83,7 @@ public class CsvProfesoresRepository : IProfesorRepository
         {
             centroId = 0;
         }
-        return new Profesor
+        var profe = new Profesor
         {
             Nif = campos[0],
             Nombre = campos[1],
@@ -91,6 +92,8 @@ public class CsvProfesoresRepository : IProfesorRepository
             Telefono = campos[4],
             CentroId = centroId,
         };
+        ProfesorValidator validator = new ProfesorValidator();
+        return validator.Validate(profe) ? profe : null;
     }
     
     public IReadOnlyList<ProfesorDTO> ObtenerProfesores()
