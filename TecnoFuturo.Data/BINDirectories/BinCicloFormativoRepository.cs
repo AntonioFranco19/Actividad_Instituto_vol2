@@ -32,7 +32,6 @@ public class BinCicloFormativoRepository
             Console.WriteLine("No se han podido guardar los datos.");
             throw;
         }
-
     }
 
     private void CargarDatos()
