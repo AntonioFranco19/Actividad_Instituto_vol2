@@ -1,12 +1,13 @@
+using System.ComponentModel.DataAnnotations;
 using MessagePack;
-
 namespace TecnoFuturo.Core.Entities;
+
 [MessagePackObject]
 public class Alumno : Persona
 {
-    [Key(5)]
+    [MessagePack.Key(5)]
     public int CentroId { get; set; }
-    [Key(6)]
+    [MessagePack.Key(6)]
     public string CicloFormativoId { get; set; } = null!;
 
     public override string ObtenerFicha()

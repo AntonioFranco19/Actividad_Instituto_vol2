@@ -4,8 +4,10 @@ using Microsoft.Extensions.Hosting;
 using TecnoFuturo.App.Configuraciones;
 using TecnoFuturo.App.Servicios;
 using TecnoFuturo.Console.Servicios;
+using TecnoFuturo.Core.Options;
 using TecnoFuturo.Core.Repositories;
 using TecnoFuturo.Core.Servicios;
+using TecnoFuturo.Data.Helpers;
 using TecnoFuturo.Data.Repsoitories;
 using TecnoFuturo.InMemory.Repositories;
 
@@ -23,8 +25,10 @@ class Program
         // 2. VINCULACIÓN (Binding):
         // Decimos: "Toma la sección 'ConfiguracionCentro' del JSON y rellena la clase ConfiguracionCentro"
         builder.Services.Configure<ConfiguracionCentro>(builder.Configuration.GetSection(nameof(ConfiguracionCentro)));
+        builder.Services.Configure<DirectoryOption>(builder.Configuration.GetSection(nameof(DirectoryOption)));
 
         // 3. Registramos nuestro servicio consumidor
+        builder.Services.AddSingleton<JsonHelper>();
         builder.Services.AddSingleton<IMensageServicio, MensajeServicio>();
         builder.Services.AddSingleton<ICentroRepository, JsonCentroRepository>();
         builder.Services.AddSingleton<IModuloRepository, JsonModuloRepository>();

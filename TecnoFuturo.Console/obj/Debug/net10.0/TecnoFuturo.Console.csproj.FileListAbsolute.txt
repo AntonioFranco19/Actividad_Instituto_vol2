@@ -156,3 +156,6 @@ C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Console\obj\De
 C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Console\obj\Debug\net10.0\TecnoFuturo.Console.pdb
 C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Console\obj\Debug\net10.0\TecnoFuturo.Console.genruntimeconfig.cache
 C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Console\obj\Debug\net10.0\ref\TecnoFuturo.Console.dll
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Console\bin\Debug\net10.0\MessagePack.dll
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Console\bin\Debug\net10.0\MessagePack.Annotations.dll
+C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Console\bin\Debug\net10.0\Microsoft.NET.StringTools.dll

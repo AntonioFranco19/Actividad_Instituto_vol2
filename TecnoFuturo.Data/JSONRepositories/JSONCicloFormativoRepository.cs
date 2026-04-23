@@ -11,9 +11,9 @@ public class JsonCicloFormativoRepository : ICicloFormativoRepository
 {
     private readonly IServiceProvider _serviceProvider;
     private Dictionary<string, CicloFormativo> _ciclosFormativos;
-    private const string SaveFile = "ciclosformativos.json";
-    
-    
+    private static readonly string SaveFile = DataConfig.GetFilePath("ciclosformativos.json");
+
+
     public JsonCicloFormativoRepository(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;

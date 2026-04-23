@@ -3,33 +3,27 @@ using Microsoft.Extensions.DependencyInjection;
 using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
+using TecnoFuturo.Data.Helpers;
 
 namespace TecnoFuturo.Data.Repsoitories;
 
 public class JsonAlumnoRepository : IAlumnoRepository
 {
-        
+    private 
     private readonly IServiceProvider _serviceProvider;
     private Dictionary<string, Alumno> _alumnos;
     private const string SaveFile = "alumnos.json";
 
-    public JsonAlumnoRepository(IServiceProvider serviceProvider)
+    public JsonAlumnoRepository(JsonHelper jasonHeler, IServiceProvider serviceProvider)
     {
+        
         _serviceProvider = serviceProvider;
         CargarDesdeArchivo();
     }
 
     private void GuardarEnArchivo()
     {
-        try
-        {
-            var json = JsonSerializer.Serialize(_alumnos.Values, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(SaveFile, json);
-        }
-        catch (Exception)
-        {
-            throw new InvalidOperationException("No se ha podido cargar en la memoria");
-        }
+        _
     }
 
     private void CargarDesdeArchivo()
