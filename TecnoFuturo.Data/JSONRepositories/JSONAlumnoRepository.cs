@@ -12,12 +12,13 @@ public class JsonAlumnoRepository : IAlumnoRepository
     private JsonHelper _jsonHelper;
     private readonly IServiceProvider _serviceProvider;
     private Dictionary<string, Alumno> _alumnos;
-    private readonly string _saveFile = DataConfig.GetFilePath("alumnos.json");
+    private readonly string _saveFile;
 
-    public JsonAlumnoRepository(JsonHelper jsonHelper, IServiceProvider serviceProvider)
+    public JsonAlumnoRepository(DataConfig.DataConfig dataConfig, JsonHelper jsonHelper, IServiceProvider serviceProvider)
     {
         _jsonHelper = jsonHelper;
         _serviceProvider = serviceProvider;
+        _saveFile = dataConfig.GetSecureFilePath("alumnos.json");
         CargarDesdeArchivo();
     }
 

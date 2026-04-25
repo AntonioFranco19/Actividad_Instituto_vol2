@@ -9,15 +9,16 @@ namespace TecnoFuturo.Data.Repsoitories;
 
 public class JsonModuloRepository : IModuloRepository
 {
-    private JsonHelper _jsonHelper;
+    private readonly JsonHelper _jsonHelper;
     private IServiceProvider _serviceProvider;
     private Dictionary<int, Modulo> _modulos;
-    private readonly string _saveFile = DataConfig.GetFilePath("modulos.json");
+    private readonly string _saveFile;
     
-    public JsonModuloRepository(JsonHelper jsonHelper, IServiceProvider serviceProvider)
+    public JsonModuloRepository(DataConfig.DataConfig dataConfig, JsonHelper jsonHelper, IServiceProvider serviceProvider)
     {
         _jsonHelper = jsonHelper;
         _serviceProvider = serviceProvider;
+        _saveFile = dataConfig.GetSecureFilePath("modulos.json");
         CargarDatos();
     }
 

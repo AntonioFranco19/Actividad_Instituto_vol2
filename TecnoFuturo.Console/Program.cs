@@ -7,6 +7,8 @@ using TecnoFuturo.Console.Servicios;
 using TecnoFuturo.Core.Options;
 using TecnoFuturo.Core.Repositories;
 using TecnoFuturo.Core.Servicios;
+using TecnoFuturo.Data;
+using TecnoFuturo.Data.DataConfig;
 using TecnoFuturo.Data.Helpers;
 using TecnoFuturo.Data.JSONRepositories;
 using TecnoFuturo.Data.Repsoitories;
@@ -30,6 +32,7 @@ class Program
 
         // 3. Registramos nuestro servicio consumidor
         builder.Services.AddSingleton<JsonHelper>();
+        builder.Services.AddSingleton<DataConfig>();
         builder.Services.AddSingleton<IMensageServicio, MensajeServicio>();
         builder.Services.AddSingleton<ICentroRepository, JsonCentroRepository>();
         builder.Services.AddSingleton<IModuloRepository, JsonModuloRepository>();

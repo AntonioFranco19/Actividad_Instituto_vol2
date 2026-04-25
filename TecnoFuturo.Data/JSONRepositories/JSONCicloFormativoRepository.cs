@@ -8,16 +8,17 @@ namespace TecnoFuturo.Data.JSONRepositories;
 
 public class JsonCicloFormativoRepository : ICicloFormativoRepository
 {
-    private JsonHelper _jsonHelper;
+    private readonly JsonHelper _jsonHelper;
     private readonly IServiceProvider _serviceProvider;
     private Dictionary<string, CicloFormativo> _ciclosFormativos;
-    private readonly string _saveFile = DataConfig.GetFilePath("ciclosformativos.json");
+    private readonly string _saveFile;
 
 
-    public JsonCicloFormativoRepository(JsonHelper jsonHelper, IServiceProvider serviceProvider)
+    public JsonCicloFormativoRepository(DataConfig.DataConfig dataConfig, JsonHelper jsonHelper, IServiceProvider serviceProvider)
     {
         _jsonHelper = jsonHelper;
         _serviceProvider = serviceProvider;
+        _saveFile = dataConfig.GetSecureFilePath("ciclosformativos.json");
         CargarDatos();
     }
 

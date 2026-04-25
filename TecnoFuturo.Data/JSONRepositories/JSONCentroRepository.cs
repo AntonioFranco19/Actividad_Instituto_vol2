@@ -8,15 +8,16 @@ namespace TecnoFuturo.Data.JSONRepositories;
 
 public class JsonCentroRepository : ICentroRepository
 {
-    private JsonHelper _jsonHelper;
+    private readonly JsonHelper _jsonHelper;
     private Dictionary<int, Centro> _centros;
     private readonly IServiceProvider _serviceProvider;
-    private readonly string _saveFile = Path.Combine(DataConfig.GetSecurepath(), "centros.json");
+    private readonly string _saveFile;
 
-    public JsonCentroRepository(JsonHelper jsonHelper, IServiceProvider serviceProvider)
+    public JsonCentroRepository(DataConfig.DataConfig dataConfig, JsonHelper jsonHelper, IServiceProvider serviceProvider)
     {
         _jsonHelper = jsonHelper;
        _serviceProvider = serviceProvider;
+       _saveFile = dataConfig.GetSecureFilePath("centros.json");
        CargarDatos();
     }
     
@@ -51,13 +52,9 @@ public class JsonCentroRepository : ICentroRepository
 
     public CentroDTO InsertarCentro(Centro centro)
     {
-        bool exito = _centros.TryAdd(centro.CentroId, centro);
-        if (exito)
-        {
-            GuardarEnArchivo();
-            return ToMap(centro);
-        }
-        throw new InvalidOperationException("El centro ya existe");
+        _centros.TryAdd(centro.CentroId, centro);
+        GuardarEnArchivo();
+        return ToMap(centro);
     }
 
     public CentroDTO ModificarCentro(Centro centro)
