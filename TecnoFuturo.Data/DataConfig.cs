@@ -4,7 +4,7 @@ public static class DataConfig
 {
     public static string GetSecurepath()
     {
-        string? path = Environment.GetEnvironmentVariable("SECURE_PATH");
+        var path = Path.Combine(Directory.GetCurrentDirectory(), "data");
 
         if (string.IsNullOrEmpty(path))
         {

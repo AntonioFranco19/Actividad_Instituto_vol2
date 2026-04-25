@@ -1,6 +1,5 @@
 ﻿using System.Text.Json;
 using Microsoft.Extensions.Options;
-using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Options;
 
 namespace TecnoFuturo.Data.Helpers;
@@ -11,9 +10,9 @@ public class JsonHelper
 
     public JsonHelper(IOptions<DirectoryOption> option)
     {
-        _directorioTrabajo =Path.Combine(Directory.GetCurrentDirectory())  option.Value.Data):
+        _directorioTrabajo = Path.Combine(Directory.GetCurrentDirectory(),  option.Value.Data);
             
-            if (Directory.Exists(_directorioTrabajo));
+            if (!Directory.Exists(_directorioTrabajo))
             {
                 Directory.CreateDirectory(_directorioTrabajo);
             }
