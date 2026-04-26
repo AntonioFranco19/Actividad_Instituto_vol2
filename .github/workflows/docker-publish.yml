@@ -2,7 +2,7 @@
 
 on:
   push:
-    branches: [ "main" ]  # Se ejecutará cada vez que subas algo a la rama main
+    branches: [ "master" ]  # Se ejecutará cada vez que subas algo a la rama main
 
 jobs:
   build-and-push:
