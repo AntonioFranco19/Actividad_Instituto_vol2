@@ -45,9 +45,9 @@ public class JsonHelper
             var json = JsonSerializer.Serialize(datos, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(ruta, json);
         }
-        catch (Exception)
+        catch (Exception e)
         {
-            throw new InvalidOperationException("No se ha podido cargar en la memoria");
+            System.Console.WriteLine(e.Message);
         }
     }
 }

@@ -187,8 +187,13 @@ public class CentroServicio
                         break;
 
                     case "15":
+                        DeleteBackups();
+                        break;
+                    
+                    case "16":
                         System.Console.WriteLine("BYE BYE!");
                         break;
+                    
                     default:
                         System.Console.WriteLine("Opcion no valida.");
                         break;
@@ -200,7 +205,7 @@ public class CentroServicio
                 
             }
             
-        } while (opcion != "15");
+        } while (opcion != "16");
 
         _logger.LogInformation("Fin del servicio de centro");
     }
@@ -225,7 +230,8 @@ public class CentroServicio
         System.Console.WriteLine("| 12. Listar Alumnos                        |");
         System.Console.WriteLine("| 13. Resumen del centro                    |");
         System.Console.WriteLine("| 14. Hacer copia de seguridad de los datos |");
-        System.Console.WriteLine("| 15. Salir                                 |");
+        System.Console.WriteLine("| 15. Borrar todas las copias de seguridad  |");
+        System.Console.WriteLine("| 16. Salir                                 |");
         System.Console.WriteLine(new string('=', 45));
     }
 
@@ -499,6 +505,25 @@ public class CentroServicio
         catch (Exception ex)
         {
             System.Console.WriteLine($"ERROR EN EL BACKUP: {ex.Message}");
+        }
+    }
+
+    private void DeleteBackups()
+    {
+        try
+        {
+            string path = _dataConfig.GetBackupPath();
+            if (Directory.Exists(path))
+            {
+                Directory.Delete(path, true);
+                System.Console.WriteLine("TODAS LAS BACKUPS BORRADAS");
+            }
+            System.Console.WriteLine("ERROR: No se ha encontrado el directorio de las copias de seguridad");
+        }
+        catch (Exception e)
+        {
+            System.Console.WriteLine($"ERROR: {e.Message}");
+            throw;
         }
     }
 }
