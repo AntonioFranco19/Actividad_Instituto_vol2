@@ -3,60 +3,39 @@ using Microsoft.Extensions.DependencyInjection;
 using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
+using TecnoFuturo.Data.Helpers;
 
 namespace TecnoFuturo.Data.Repsoitories;
 
 public class JsonModuloRepository : IModuloRepository
 {
+    private readonly JsonHelper _jsonHelper;
     private IServiceProvider _serviceProvider;
     private Dictionary<int, Modulo> _modulos;
-    private const string SaveFile = "modulos.json";
+    private readonly string _saveFile;
     
-    public JsonModuloRepository(IServiceProvider serviceProvider)
+    public JsonModuloRepository(DataConfig.DataConfig dataConfig, JsonHelper jsonHelper, IServiceProvider serviceProvider)
     {
+        _jsonHelper = jsonHelper;
         _serviceProvider = serviceProvider;
+        _saveFile = dataConfig.GetSecureFilePath("modulos.json");
         CargarDatos();
     }
 
     private void GuardarEnArchivo()
     {
-        try
-        {
-            string json = JsonSerializer.Serialize(_modulos.Values, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(SaveFile, json);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("No se han podido guardar los datos");
-            throw;
-        }
+        _jsonHelper.GuardarDatos(_saveFile, _modulos.Values);
     }
 
     private void CargarDatos()
     {
-        try
+        var modulos = _jsonHelper.LeerDatos<Modulo>(_saveFile);
+        if (modulos == null)
         {
-            if (!File.Exists(SaveFile))
-            {
-                _modulos = new Dictionary<int, Modulo>();
-                return;
-            }
-
-            string json = File.ReadAllText(SaveFile);
-            if (string.IsNullOrEmpty(json))
-            {
-                _modulos = new Dictionary<int, Modulo>();
-                return;
-            }
-
-            var lista = JsonSerializer.Deserialize<List<Modulo>>(json);
-            _modulos = lista!.ToDictionary(x => x.ModuloId);
+            _modulos = new Dictionary<int, Modulo>();
+            return;
         }
-        catch (Exception e)
-        {
-            Console.WriteLine("No se han podido cargar los datos");
-            throw;
-        }
+        _modulos = modulos.ToDictionary(m=> m.ModuloId);
     }
     
     public IReadOnlyList<ModuloDTO> ObtenerModulos()

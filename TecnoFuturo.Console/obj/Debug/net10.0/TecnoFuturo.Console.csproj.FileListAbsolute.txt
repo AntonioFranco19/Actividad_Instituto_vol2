@@ -159,3 +159,8 @@ C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Console\obj\De
 C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Console\bin\Debug\net10.0\MessagePack.dll
 C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Console\bin\Debug\net10.0\MessagePack.Annotations.dll
 C:\Users\dam1\Downloads\TecnoFuturo_final\TecnoFuturo\TecnoFuturo.Console\bin\Debug\net10.0\Microsoft.NET.StringTools.dll
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Console\bin\Debug\net10.0\MessagePack.dll
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Console\bin\Debug\net10.0\MessagePack.Annotations.dll
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Console\bin\Debug\net10.0\Microsoft.NET.StringTools.dll
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Console\bin\Debug\net10.0\TecnoFuturo.Data.dll
+C:\Users\afran\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Console\bin\Debug\net10.0\TecnoFuturo.Data.pdb

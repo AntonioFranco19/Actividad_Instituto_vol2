@@ -9,50 +9,33 @@ namespace TecnoFuturo.Data.Repsoitories;
 
 public class JsonAlumnoRepository : IAlumnoRepository
 {
-    private 
+    private JsonHelper _jsonHelper;
     private readonly IServiceProvider _serviceProvider;
     private Dictionary<string, Alumno> _alumnos;
-    private const string SaveFile = "alumnos.json";
+    private readonly string _saveFile;
 
-    public JsonAlumnoRepository(JsonHelper jasonHeler, IServiceProvider serviceProvider)
+    public JsonAlumnoRepository(DataConfig.DataConfig dataConfig, JsonHelper jsonHelper, IServiceProvider serviceProvider)
     {
-        
+        _jsonHelper = jsonHelper;
         _serviceProvider = serviceProvider;
+        _saveFile = dataConfig.GetSecureFilePath("alumnos.json");
         CargarDesdeArchivo();
     }
 
     private void GuardarEnArchivo()
     {
-        _
+        _jsonHelper.GuardarDatos(_saveFile, _alumnos.Values);
     }
 
     private void CargarDesdeArchivo()
     {
-        try
+        var alumnos = _jsonHelper.LeerDatos<Alumno>(_saveFile);
+        if (alumnos != null)
         {
-            if (!File.Exists(SaveFile))
-            {
-                _alumnos = new Dictionary<string, Alumno>();
-                return;
-            }
-
-            string json = File.ReadAllText(SaveFile);
-            
-            if (string.IsNullOrWhiteSpace(json))
-            {
-                _alumnos = new Dictionary<string, Alumno>();
-                return;
-            }
-            
-            var lista = JsonSerializer.Deserialize<List<Alumno>>(json);
-
-            _alumnos = lista!.ToDictionary(x => x.Nif);
-
+            _alumnos = alumnos.ToDictionary(a => a.Nif);
+            return;
         }
-        catch (Exception e)
-        {
-            throw new InvalidCastException("No se ha podido cargar");
-        }
+        _alumnos = new Dictionary<string, Alumno>();
     }
 
     public IReadOnlyList<AlumnoDTO> ObtenerAlumnos()

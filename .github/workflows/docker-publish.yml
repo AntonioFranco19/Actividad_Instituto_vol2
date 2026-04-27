@@ -1,0 +1,30 @@
+﻿name: Build and Publish to DockerHub
+
+on:
+  push:
+    branches: [ "master" ]  # Se ejecutará cada vez que subas algo a la rama main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Iniciar sesión en DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Construir y Subir Imagen
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile  # Asegúrate de que el nombre coincida con tu archivo
+          push: true
+          # Sustituye 'tu-usuario' por tu nombre de DockerHub
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/tecno-futuro:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/tecno-futuro:${{ github.run_number }}

@@ -1,3 +1,4 @@
+using System.IO.Compression;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TecnoFuturo.App.Configuraciones;
@@ -6,14 +7,17 @@ using TecnoFuturo.Console.Helpers;
 using TecnoFuturo.Core;
 using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
+using TecnoFuturo.Core.Options;
 using TecnoFuturo.Core.Repositories;
 using TecnoFuturo.Core.Validators;
+using TecnoFuturo.Data.DataConfig;
 using TecnoFuturo.Data.Repsoitories;
 
 namespace TecnoFuturo.Console.Servicios;
 
 public class CentroServicio
 {
+    private readonly DataConfig _dataConfig;
     private readonly Centro _centro;
     private readonly ICentroRepository _centroRepository;
     private readonly IAlumnoRepository _alumnoRepository;
@@ -22,8 +26,9 @@ public class CentroServicio
     private readonly IModuloRepository _moduloRepository;
     private readonly ILogger<CentroServicio> _logger;
 
-    public CentroServicio(IOptions<ConfiguracionCentro> configuracionCentro, ILogger<CentroServicio> logger, ICentroRepository centroRepository, IAlumnoRepository alumnoRepository, IProfesorRepository profesorRepository, ICicloFormativoRepository cicloFormativoRepository, IModuloRepository moduloRepository)
+    public CentroServicio(DataConfig dataconfig, IOptions<ConfiguracionCentro> configuracionCentro, ILogger<CentroServicio> logger, ICentroRepository centroRepository, IAlumnoRepository alumnoRepository, IProfesorRepository profesorRepository, ICicloFormativoRepository cicloFormativoRepository, IModuloRepository moduloRepository)
     {
+        _dataConfig = dataconfig;
         _logger = logger;
         _centroRepository = centroRepository;
         _alumnoRepository = alumnoRepository;
@@ -64,121 +69,143 @@ public class CentroServicio
             Menu();
             System.Console.Write("OPCION>");
             opcion = System.Console.ReadLine();
-            switch (opcion)
+            try
             {
-                case "1":
-                    CrearCicloFormativo();
-                    break;
-                case "2":
-                    _centro.MostarCiclosFormativos(_cicloFormativoRepository);
-                    break;
-                case "3":
-                    cicloFormativoSeleccionado = SeleccionarCicloFormativo();
-                    if (cicloFormativoSeleccionado != null)
-                    {
-                        moduloSeleccionado = null;
-                    }
-                    else
-                    {
-                        System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
-                    }
+                switch (opcion)
+                {
+                    case "1":
+                        CrearCicloFormativo();
+                        break;
+                    case "2":
+                        _centro.MostarCiclosFormativos(_cicloFormativoRepository);
+                        break;
+                    case "3":
+                        cicloFormativoSeleccionado = SeleccionarCicloFormativo();
+                        if (cicloFormativoSeleccionado != null)
+                        {
+                            moduloSeleccionado = null;
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
+                        }
 
-                    break;
-                case "4":
-                    if (cicloFormativoSeleccionado != null)
-                    {
-                        cicloFormativoSeleccionado.MostarInformacion();
-                    }
-                    else
-                    {
-                        System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
-                    }
+                        break;
+                    case "4":
+                        if (cicloFormativoSeleccionado != null)
+                        {
+                            cicloFormativoSeleccionado.MostarInformacion();
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
+                        }
 
-                    break;
-                case "5":
-                    if (cicloFormativoSeleccionado != null)
-                    {
-                        CrearModulo(cicloFormativoSeleccionado);
-                    }
-                    else
-                    {
-                        System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
-                    }
-                    break;
-                case "6":
-                    if (cicloFormativoSeleccionado != null)
-                    {
-                        cicloFormativoSeleccionado.MostarModulos(_moduloRepository, _profesorRepository);
-                    }
-                    else
-                    {
-                        System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
-                    }                    
-                    break;
-                case "7":
-                    if (cicloFormativoSeleccionado != null)
-                    {
-                        moduloSeleccionado = SeleccionarModulo(cicloFormativoSeleccionado);
-                        if (moduloSeleccionado == null)
+                        break;
+                    case "5":
+                        if (cicloFormativoSeleccionado != null)
+                        {
+                            CrearModulo(cicloFormativoSeleccionado);
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
+                        }
+
+                        break;
+                    case "6":
+                        if (cicloFormativoSeleccionado != null)
+                        {
+                            cicloFormativoSeleccionado.MostarModulos(_moduloRepository, _profesorRepository);
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
+                        }
+
+                        break;
+                    case "7":
+                        if (cicloFormativoSeleccionado != null)
+                        {
+                            moduloSeleccionado = SeleccionarModulo(cicloFormativoSeleccionado);
+                            if (moduloSeleccionado == null)
+                            {
+                                System.Console.WriteLine("NO SE HA SELECCIONADO UN MODULO");
+                            }
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
+                        }
+
+                        break;
+                    case "8":
+                        RegistrarProfesor();
+                        break;
+                    case "9":
+                        _centro.MostrarProfesores(_profesorRepository);
+                        break;
+                    case "10":
+                        if (moduloSeleccionado != null)
+                        {
+                            RegistrarProfesorAModulo(moduloSeleccionado);
+                        }
+                        else
                         {
                             System.Console.WriteLine("NO SE HA SELECCIONADO UN MODULO");
                         }
-                    }
-                    else
-                    {
-                        System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
-                    }
 
-                    break;
-                case "8":
-                    RegistrarProfesor();
-                    break;
-                case "9":
-                    _centro.MostrarProfesores(_profesorRepository);
-                    break;
-                case "10":
-                    if (moduloSeleccionado != null)
-                    {
-                        RegistrarProfesorAModulo(moduloSeleccionado);
-                    }
-                    else
-                    {
-                        System.Console.WriteLine("NO SE HA SELECCIONADO UN MODULO");
-                    }
-                    break;
-                case "11":
-                    if (cicloFormativoSeleccionado != null)
-                    {
-                        MatricularAlumno(cicloFormativoSeleccionado);
-                    }
-                    else
-                    {
-                        System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
-                    }
+                        break;
+                    case "11":
+                        if (cicloFormativoSeleccionado != null)
+                        {
+                            MatricularAlumno(cicloFormativoSeleccionado);
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
+                        }
 
-                    break;
-                case "12":
-                    if (cicloFormativoSeleccionado != null)
-                    {
-                        cicloFormativoSeleccionado.MostrarAlumnos(_alumnoRepository);
-                    }
-                    else
-                    {
-                        System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
-                    }
+                        break;
+                    case "12":
+                        if (cicloFormativoSeleccionado != null)
+                        {
+                            cicloFormativoSeleccionado.MostrarAlumnos(_alumnoRepository);
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("NO SE HA SELECCIONADO UN CICLO FORMATIVO");
+                        }
 
-                    break;
-                case "13":
-                    _centro.MostrarResumen(_cicloFormativoRepository, _alumnoRepository);
-                    break;
-                case "14":
-                    System.Console.WriteLine("BYE BYE!");
-                    break;
-                default:
-                    System.Console.WriteLine("Opcion no valida.");
-                    break;
+                        break;
+                    case "13":
+                        _centro.MostrarResumen(_cicloFormativoRepository, _alumnoRepository);
+                        break;
+
+                    case "14":
+                        GenerateZipBackup();
+                        break;
+
+                    case "15":
+                        DeleteBackups();
+                        break;
+                    
+                    case "16":
+                        System.Console.WriteLine("BYE BYE!");
+                        break;
+                    
+                    default:
+                        System.Console.WriteLine("Opcion no valida.");
+                        break;
+                }
             }
-        } while (opcion != "14");
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e);
+                
+            }
+            
+        } while (opcion != "16");
 
         _logger.LogInformation("Fin del servicio de centro");
     }
@@ -186,24 +213,26 @@ public class CentroServicio
 
     private void Menu()
     {
-        System.Console.WriteLine(new string('=', 44));
-        System.Console.WriteLine("|                  M E N U                 |");
+        System.Console.WriteLine(new string('=', 45));
+        System.Console.WriteLine("|                  M E N U                  |");
         System.Console.WriteLine(new string('-', 44));
-        System.Console.WriteLine("|  1. Crear ciclo formativo                |");
-        System.Console.WriteLine("|  2. Listar ciclos formativos             |");
-        System.Console.WriteLine("|  3. Seleccionar ciclo formativo          |");
-        System.Console.WriteLine("|  4. Mostrar ciclo formativo seleccionado |");
-        System.Console.WriteLine("|  5. Crear módulo                         |");
-        System.Console.WriteLine("|  6. Listar modulos                       |");
-        System.Console.WriteLine("|  7. Seleccionar módulo                   |");
-        System.Console.WriteLine("|  8. Registrar profesor                   |");
-        System.Console.WriteLine("|  9. Mostar profesores                    |");
-        System.Console.WriteLine("| 10. Registrar profesor a módulo          |");
-        System.Console.WriteLine("| 11. Matricular alumno                    |");
-        System.Console.WriteLine("| 12. Listar Alumnos                       |");
-        System.Console.WriteLine("| 13. Resumen del centro                   |");
-        System.Console.WriteLine("| 14. Salir                                |");
-        System.Console.WriteLine(new string('=', 44));
+        System.Console.WriteLine("|  1. Crear ciclo formativo                 |");
+        System.Console.WriteLine("|  2. Listar ciclos formativos              |");
+        System.Console.WriteLine("|  3. Seleccionar ciclo formativo           |");
+        System.Console.WriteLine("|  4. Mostrar ciclo formativo seleccionado  |");
+        System.Console.WriteLine("|  5. Crear módulo                          |");
+        System.Console.WriteLine("|  6. Listar modulos                        |");
+        System.Console.WriteLine("|  7. Seleccionar módulo                    |");
+        System.Console.WriteLine("|  8. Registrar profesor                    |");
+        System.Console.WriteLine("|  9. Mostar profesores                     |");
+        System.Console.WriteLine("| 10. Registrar profesor a módulo           |");
+        System.Console.WriteLine("| 11. Matricular alumno                     |");
+        System.Console.WriteLine("| 12. Listar Alumnos                        |");
+        System.Console.WriteLine("| 13. Resumen del centro                    |");
+        System.Console.WriteLine("| 14. Hacer copia de seguridad de los datos |");
+        System.Console.WriteLine("| 15. Borrar todas las copias de seguridad  |");
+        System.Console.WriteLine("| 16. Salir                                 |");
+        System.Console.WriteLine(new string('=', 45));
     }
 
     private void CrearCicloFormativo()
@@ -240,7 +269,6 @@ public class CentroServicio
         {
             try
             {
-
                 _cicloFormativoRepository.InsertarCicloFormativo(cicloFormativo);
             }
             catch (Exception e)
@@ -460,5 +488,42 @@ public class CentroServicio
             ProfesorNif = a.ProfesorNif
         };
     }
-    
+
+    private void GenerateZipBackup()
+    {
+        string jsonsPath = _dataConfig.GetSecurepath();
+        string backupPath = _dataConfig.GetBackupPath();
+
+        string name = $"Backup_{DateTime.Now:yyyy_mm_dd}.zip";
+        string completePath = Path.Combine(backupPath, name);
+
+        try
+        {
+            ZipFile.CreateFromDirectory(jsonsPath, completePath);
+            System.Console.WriteLine("BACKUP COMPLETADO");
+        }
+        catch (Exception ex)
+        {
+            System.Console.WriteLine($"ERROR EN EL BACKUP: {ex.Message}");
+        }
+    }
+
+    private void DeleteBackups()
+    {
+        try
+        {
+            string path = _dataConfig.GetBackupPath();
+            if (Directory.Exists(path))
+            {
+                Directory.Delete(path, true);
+                System.Console.WriteLine("TODAS LAS BACKUPS BORRADAS");
+            }
+            System.Console.WriteLine("ERROR: No se ha encontrado el directorio de las copias de seguridad");
+        }
+        catch (Exception e)
+        {
+            System.Console.WriteLine($"ERROR: {e.Message}");
+            throw;
+        }
+    }
 }

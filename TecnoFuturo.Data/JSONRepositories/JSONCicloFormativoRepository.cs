@@ -1,68 +1,43 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
+using TecnoFuturo.Data.Helpers;
 
-namespace TecnoFuturo.Data.Repsoitories;
+namespace TecnoFuturo.Data.JSONRepositories;
 
 public class JsonCicloFormativoRepository : ICicloFormativoRepository
 {
+    private readonly JsonHelper _jsonHelper;
     private readonly IServiceProvider _serviceProvider;
     private Dictionary<string, CicloFormativo> _ciclosFormativos;
-    private static readonly string SaveFile = DataConfig.GetFilePath("ciclosformativos.json");
+    private readonly string _saveFile;
 
 
-    public JsonCicloFormativoRepository(IServiceProvider serviceProvider)
+    public JsonCicloFormativoRepository(DataConfig.DataConfig dataConfig, JsonHelper jsonHelper, IServiceProvider serviceProvider)
     {
+        _jsonHelper = jsonHelper;
         _serviceProvider = serviceProvider;
+        _saveFile = dataConfig.GetSecureFilePath("ciclosformativos.json");
         CargarDatos();
     }
 
     private void GuardarEnArchivo()
     {
-        try
-        {
-            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
-            var json = JsonSerializer.Serialize(_ciclosFormativos.Values, options);
-            File.WriteAllText(SaveFile, json);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("No se han podido guardar los datos.");
-            throw;
-        }
-        
+        _jsonHelper.GuardarDatos(_saveFile, _ciclosFormativos.Values);   
     }
 
     private void CargarDatos()
     {
-        try
-        {
-            if (!File.Exists(SaveFile))
-            {
-                _ciclosFormativos = new Dictionary<string, CicloFormativo>();
-                return; 
-            }
-
-            string json = File.ReadAllText(SaveFile);
-
-            if (string.IsNullOrEmpty(json))
-            {
-                _ciclosFormativos = new Dictionary<string, CicloFormativo>();
-                return;
-            }
-
-            var datos = JsonSerializer.Deserialize<List<CicloFormativo>>(json);
+        var ciclos = _jsonHelper.LeerDatos<CicloFormativo>(_saveFile);
         
-            _ciclosFormativos = datos!.ToDictionary(x => x.CicloFormativoId);
-        }
-        catch (Exception e)
+        if (ciclos == null)
         {
-            Console.WriteLine("No se han podido cargar los datos.");
-            throw;
+            _ciclosFormativos = new Dictionary<string, CicloFormativo>();
+            return;
         }
+
+        _ciclosFormativos = ciclos.ToDictionary(c => c.CicloFormativoId);
     }
     public IReadOnlyList<CicloFormativoDTO> ObtenerCiclosFormativos()
     {

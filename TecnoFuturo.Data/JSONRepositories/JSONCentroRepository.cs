@@ -1,64 +1,43 @@
-﻿using System.Text.Json;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
+using TecnoFuturo.Data.Helpers;
 
-namespace TecnoFuturo.Data.Repsoitories;
+namespace TecnoFuturo.Data.JSONRepositories;
 
 public class JsonCentroRepository : ICentroRepository
 {
+    private readonly JsonHelper _jsonHelper;
     private Dictionary<int, Centro> _centros;
     private readonly IServiceProvider _serviceProvider;
-    private const string SaveFile = "centros.json";
+    private readonly string _saveFile;
 
-    public JsonCentroRepository(IServiceProvider serviceProvider)
+    public JsonCentroRepository(DataConfig.DataConfig dataConfig, JsonHelper jsonHelper, IServiceProvider serviceProvider)
     {
+        _jsonHelper = jsonHelper;
        _serviceProvider = serviceProvider;
+       _saveFile = dataConfig.GetSecureFilePath("centros.json");
        CargarDatos();
     }
     
     private void GuardarEnArchivo()
     {
-        try
-        {
-            string json = JsonSerializer.Serialize(_centros.Values, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(SaveFile, json);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("No se han podido guardar los datos");
-            throw;
-        }
+        _jsonHelper.GuardarDatos(_saveFile, _centros.Values);
     }
 
     private void CargarDatos()
     {
-        try
+        var centros = _jsonHelper.LeerDatos<Centro>(_saveFile);
+        if (centros == null)
         {
-            if (!File.Exists(SaveFile))
-            {
-                _centros = new Dictionary<int, Centro>();
-                return;
-            }
-
-            string json = File.ReadAllText(SaveFile);
-            if (string.IsNullOrEmpty(json))
-            {
-                _centros = new Dictionary<int, Centro>();
-                return;
-            }
-
-            var lista = JsonSerializer.Deserialize<List<Centro>>(json);
-            _centros = lista!.ToDictionary(x => x.CentroId);
+            _centros = new Dictionary<int, Centro>();
+            return;
         }
-        catch (Exception e)
-        {
-            Console.WriteLine("No se han podido cargar los datos");
-            throw;
-        }
+
+        _centros = centros.ToDictionary(c => c.CentroId);
     }
-    
+
     public IReadOnlyList<CentroDTO> ObtenerCentros()
     {
         return _centros.Values.Select(x => ToMap(x)).ToList();
@@ -73,13 +52,9 @@ public class JsonCentroRepository : ICentroRepository
 
     public CentroDTO InsertarCentro(Centro centro)
     {
-        bool exito = _centros.TryAdd(centro.CentroId, centro);
-        if (exito)
-        {
-            GuardarEnArchivo();
-            return ToMap(centro);
-        }
-        throw new InvalidOperationException("El centro ya existe");
+        _centros.TryAdd(centro.CentroId, centro);
+        GuardarEnArchivo();
+        return ToMap(centro);
     }
 
     public CentroDTO ModificarCentro(Centro centro)

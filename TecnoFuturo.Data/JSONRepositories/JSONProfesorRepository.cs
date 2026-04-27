@@ -3,62 +3,41 @@ using Microsoft.Extensions.DependencyInjection;
 using TecnoFuturo.Core.DTOs;
 using TecnoFuturo.Core.Entities;
 using TecnoFuturo.Core.Repositories;
+using TecnoFuturo.Data.Helpers;
 
 namespace TecnoFuturo.Data.Repsoitories;
 
 public class JsonProfesorRepository : IProfesorRepository
 {
+    private JsonHelper _jsonHelper;
     private readonly IServiceProvider _serviceProvider;
     private Dictionary<string, Profesor> _profesores;
-    private const string SaveFile = "profesores.json";
+    private readonly string _saveFile;
     
-    public JsonProfesorRepository(IServiceProvider serviceProvider)
+    public JsonProfesorRepository(DataConfig.DataConfig dataConfig, JsonHelper jsonHelper, IServiceProvider serviceProvider)
     {
+        _jsonHelper = jsonHelper;
         _serviceProvider = serviceProvider;
+        _saveFile = dataConfig.GetSecureFilePath("profesores.json");
         CargarDesdeArchivo();
     }
 
     private void GuardarEnArchivo()
     {
-        try
-        {
-            string json = JsonSerializer.Serialize(_profesores.Values, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(SaveFile, json);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("No se han podido guardar los datos");
-            throw;
-        }
+        _jsonHelper.GuardarDatos(_saveFile, _profesores.Values);
     }
 
     private void CargarDesdeArchivo()
     {
-        try
-        {
-            if (!File.Exists(SaveFile))
-            {
-                _profesores = new Dictionary<string, Profesor>();
-                return;
-            }
-            
-            string json = File.ReadAllText(SaveFile);
-            
-            if (string.IsNullOrEmpty(json))
-            {
-                
-                _profesores = new Dictionary<string, Profesor>();
-                return;
-            }
+        var profesores = _jsonHelper.LeerDatos<Profesor>(_saveFile);
 
-            var lista = JsonSerializer.Deserialize<List<Profesor>>(json);
-            _profesores = lista!.ToDictionary(x => x.Nif);
-        }
-        catch (Exception e)
+        if (profesores == null)
         {
-            Console.WriteLine("No se han podido cargar los archivos");
-            throw;
+            _profesores = new Dictionary<string, Profesor>();
+            return;
         }
+
+        _profesores = profesores.ToDictionary(p => p.Nif);
     }
     
     public IReadOnlyList<ProfesorDTO> ObtenerProfesores()
