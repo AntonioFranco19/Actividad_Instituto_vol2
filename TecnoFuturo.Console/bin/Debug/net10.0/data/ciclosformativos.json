@@ -10,5 +10,11 @@
     "CicloFormativoId": "111",
     "Nombre": "test",
     "Turno": 0
+  },
+  {
+    "CentroId": 1,
+    "CicloFormativoId": "DAW",
+    "Nombre": "Des aplicaciones web",
+    "Turno": 0
   }
 ]

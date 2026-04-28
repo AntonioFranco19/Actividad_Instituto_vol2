@@ -494,7 +494,7 @@ public class CentroServicio
         string jsonsPath = _dataConfig.GetSecurepath();
         string backupPath = _dataConfig.GetBackupPath();
 
-        string name = $"Backup_{DateTime.Now:yyyy_mm_dd}.zip";
+        string name = $"Backup_{DateTime.Now:MM/dd/yyyy_hh:mm:ss}.zip";
         string completePath = Path.Combine(backupPath, name);
 
         try
