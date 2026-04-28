@@ -7,7 +7,6 @@ using TecnoFuturo.Console.Servicios;
 using TecnoFuturo.Core.Options;
 using TecnoFuturo.Core.Repositories;
 using TecnoFuturo.Core.Servicios;
-using TecnoFuturo.Data;
 using TecnoFuturo.Data.DataConfig;
 using TecnoFuturo.Data.Helpers;
 using TecnoFuturo.Data.JSONRepositories;

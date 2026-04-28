@@ -4,5 +4,11 @@
     "CicloFormativoId": "123",
     "Nombre": "desarrollo aplicaciones multiplataforma",
     "Turno": 1
+  },
+  {
+    "CentroId": 1,
+    "CicloFormativoId": "111",
+    "Nombre": "test",
+    "Turno": 0
   }
 ]
