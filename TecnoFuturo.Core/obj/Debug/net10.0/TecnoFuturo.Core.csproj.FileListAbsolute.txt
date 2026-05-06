@@ -50,3 +50,16 @@ C:\Users\afran\RiderProjects\Actividad_Instituto_vol3\TecnoFuturo.Core\obj\Debug
 C:\Users\afran\RiderProjects\Actividad_Instituto_vol3\TecnoFuturo.Core\obj\Debug\net10.0\refint\TecnoFuturo.Core.dll
 C:\Users\afran\RiderProjects\Actividad_Instituto_vol3\TecnoFuturo.Core\obj\Debug\net10.0\TecnoFuturo.Core.pdb
 C:\Users\afran\RiderProjects\Actividad_Instituto_vol3\TecnoFuturo.Core\obj\Debug\net10.0\ref\TecnoFuturo.Core.dll
+C:\Users\1821195\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Core\bin\Debug\net10.0\TecnoFuturo.Core.deps.json
+C:\Users\1821195\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Core\bin\Debug\net10.0\TecnoFuturo.Core.dll
+C:\Users\1821195\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Core\bin\Debug\net10.0\TecnoFuturo.Core.pdb
+C:\Users\1821195\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Core\obj\Debug\net10.0\TecnoFuturo.Core.csproj.AssemblyReference.cache
+C:\Users\1821195\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Core\obj\Debug\net10.0\TecnoFuturo.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1821195\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Core\obj\Debug\net10.0\TecnoFuturo.Core.AssemblyInfoInputs.cache
+C:\Users\1821195\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Core\obj\Debug\net10.0\TecnoFuturo.Core.AssemblyInfo.cs
+C:\Users\1821195\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Core\obj\Debug\net10.0\TecnoFuturo.Core.csproj.CoreCompileInputs.cache
+C:\Users\1821195\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Core\obj\Debug\net10.0\TecnoFuturo.Core.sourcelink.json
+C:\Users\1821195\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Core\obj\Debug\net10.0\TecnoFuturo.Core.dll
+C:\Users\1821195\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Core\obj\Debug\net10.0\refint\TecnoFuturo.Core.dll
+C:\Users\1821195\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Core\obj\Debug\net10.0\TecnoFuturo.Core.pdb
+C:\Users\1821195\RiderProjects\Actividad_Instituto_vol2\TecnoFuturo.Core\obj\Debug\net10.0\ref\TecnoFuturo.Core.dll

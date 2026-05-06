@@ -163,13 +163,27 @@
           }
         }
       },
+      "MongoDB.Bson/3.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/MongoDB.Bson.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MongoDB.Bson.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "TecnoFuturo.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "MessagePack": "3.1.4",
           "MessagePack.Annotations": "3.1.4",
-          "Microsoft.Extensions.Logging": "10.0.5"
+          "Microsoft.Extensions.Logging": "10.0.5",
+          "MongoDB.Bson": "3.8.0"
         },
         "compile": {
           "bin/placeholder/TecnoFuturo.Core.dll": {}
@@ -498,6 +512,25 @@
         "ref/netstandard2.0/Microsoft.NET.StringTools.xml"
       ]
     },
+    "MongoDB.Bson/3.8.0": {
+      "sha512": "HeiOJUylam5nIB7b1EfzlnJbf6A9te79WO6CtsKfp8M/2EeL4SoSQFjmUpJ6/vvuaNKGENXMaX9oUJp9KpHlqw==",
+      "type": "package",
+      "path": "mongodb.bson/3.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net472/MongoDB.Bson.dll",
+        "lib/net472/MongoDB.Bson.xml",
+        "lib/net6.0/MongoDB.Bson.dll",
+        "lib/net6.0/MongoDB.Bson.xml",
+        "lib/netstandard2.1/MongoDB.Bson.dll",
+        "lib/netstandard2.1/MongoDB.Bson.xml",
+        "mongodb.bson.3.8.0.nupkg.sha512",
+        "mongodb.bson.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "TecnoFuturo.Core/1.0.0": {
       "type": "project",
       "path": "../TecnoFuturo.Core/TecnoFuturo.Core.csproj",
@@ -511,32 +544,40 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\afran\\.nuget\\packages\\": {}
+    "C:\\Users\\1821195\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Data\\TecnoFuturo.Data.csproj",
+      "projectUniqueName": "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Data\\TecnoFuturo.Data.csproj",
       "projectName": "TecnoFuturo.Data",
-      "projectPath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Data\\TecnoFuturo.Data.csproj",
-      "packagesPath": "C:\\Users\\afran\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Data\\obj\\",
+      "projectPath": "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Data\\TecnoFuturo.Data.csproj",
+      "packagesPath": "C:\\Users\\1821195\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Data\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\afran\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\1821195\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj": {
-              "projectPath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj"
+            "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj": {
+              "projectPath": "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj"
             }
           }
         }

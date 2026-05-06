@@ -10,6 +10,11 @@
       <PackageReference Include="MessagePack" Version="3.1.4" />
       <PackageReference Include="MessagePack.Annotations" Version="3.1.4" />
       <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.5" />
+      <PackageReference Include="MongoDB.Bson" Version="3.8.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Servicios\" />
     </ItemGroup>
 
 </Project>

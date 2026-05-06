@@ -11,6 +11,8 @@ using TecnoFuturo.Data.DataConfig;
 using TecnoFuturo.Data.Helpers;
 using TecnoFuturo.Data.JSONRepositories;
 using TecnoFuturo.Data.Repsoitories;
+using TecnoFuturo.Database.Options;
+using TecnoFuturo.Database.Services;
 using TecnoFuturo.InMemory.Repositories;
 
 namespace TecnoFuturo.Console;
@@ -28,10 +30,12 @@ class Program
         // Decimos: "Toma la sección 'ConfiguracionCentro' del JSON y rellena la clase ConfiguracionCentro"
         builder.Services.Configure<ConfiguracionCentro>(builder.Configuration.GetSection(nameof(ConfiguracionCentro)));
         builder.Services.Configure<DirectoryOption>(builder.Configuration.GetSection(nameof(DirectoryOption)));
+        builder.Services.Configure<DatabaseOption>(builder.Configuration.GetSection(nameof(DatabaseOption)));
 
         // 3. Registramos nuestro servicio consumidor
         builder.Services.AddSingleton<JsonHelper>();
         builder.Services.AddSingleton<DataConfig>();
+        builder.Services.AddSingleton<DataBaseService>();
         builder.Services.AddSingleton<IMensageServicio, MensajeServicio>();
         builder.Services.AddSingleton<ICentroRepository, JsonCentroRepository>();
         builder.Services.AddSingleton<IModuloRepository, JsonModuloRepository>();

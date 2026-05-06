@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj": {}
+    "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj": {}
   },
   "projects": {
-    "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj": {
+    "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj",
+        "projectUniqueName": "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj",
         "projectName": "TecnoFuturo.Core",
-        "projectPath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj",
-        "packagesPath": "C:\\Users\\afran\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\obj\\",
+        "projectPath": "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj",
+        "packagesPath": "C:\\Users\\1821195\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\afran\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\1821195\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,6 +62,10 @@
             "Microsoft.Extensions.Logging": {
               "target": "Package",
               "version": "[10.0.5, )"
+            },
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[3.8.0, )"
             }
           },
           "imports": [
@@ -351,30 +362,37 @@
         }
       }
     },
-    "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj": {
+    "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj",
+        "projectUniqueName": "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj",
         "projectName": "TecnoFuturo.InMemory",
-        "projectPath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj",
-        "packagesPath": "C:\\Users\\afran\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.InMemory\\obj\\",
+        "projectPath": "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.InMemory\\TecnoFuturo.InMemory.csproj",
+        "packagesPath": "C:\\Users\\1821195\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.InMemory\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\afran\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\1821195\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj": {
-                "projectPath": "C:\\Users\\afran\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj"
+              "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj": {
+                "projectPath": "C:\\Users\\1821195\\RiderProjects\\Actividad_Instituto_vol2\\TecnoFuturo.Core\\TecnoFuturo.Core.csproj"
               }
             }
           }

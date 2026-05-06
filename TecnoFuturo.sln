@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecnoFuturo.InMemory", "Tec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecnoFuturo.Data", "TecnoFuturo.Data\TecnoFuturo.Data.csproj", "{93C2A510-24BA-445B-AD2E-DCADB3643942}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecnoFuturo.Database", "TecnoFuturo.Database\TecnoFuturo.Database.csproj", "{FC6B3B25-9E07-440B-95C4-15617430FEE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{93C2A510-24BA-445B-AD2E-DCADB3643942}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93C2A510-24BA-445B-AD2E-DCADB3643942}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93C2A510-24BA-445B-AD2E-DCADB3643942}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC6B3B25-9E07-440B-95C4-15617430FEE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC6B3B25-9E07-440B-95C4-15617430FEE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC6B3B25-9E07-440B-95C4-15617430FEE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC6B3B25-9E07-440B-95C4-15617430FEE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

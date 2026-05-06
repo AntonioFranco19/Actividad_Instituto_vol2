@@ -1,12 +1,14 @@
 using MessagePack;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace TecnoFuturo.Core.Entities;
 
-[MessagePackObject]
+// [MessagePackObject]
 public class Profesor : Persona
 {
-    [Key(5)]
-    public int CentroId { get; set; }
+   // [Key(5)]
+   [BsonElement("Centro_Id")] 
+   public int CentroId { get; set; }
 
     public override string ObtenerFicha()
     {
